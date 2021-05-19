@@ -1,0 +1,53 @@
+﻿@model IEnumerable<incident_reporting_web_application.Models.IncidentReportView.IncidentReportList>
+
+@{
+    ViewBag.Title = "DisplayIncidentReports";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+
+            <thead>
+                <tr>
+                    <td>Case #</td>
+                    <td>Title</td>
+                    <td>Incident Description</td> @*use ... as the button for modal*@
+                    <td>Relief Description</td>
+                    <td>Date of Incident</td>
+                    <td>Processed By</td>
+                    <td>Date Processed</td>
+                    <td>Hearing Status</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="align-middle">
+                        <td>@item.CaseNo</td>
+                        <td>@item.CaseTitle</td>
+                        <td>@item.IncidentDesc</td>
+                        <td>@item.ReliefDesc</td>
+                        <td>@item.DateOfIncident.ToLongDateString()</td>
+                        <td>@item.ProcessedBy</td>
+                        <td>@item.DateProcessed.ToLongDateString()</td>
+                        <td>@item.HearingStatus</td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-success m-1">Summary</button>
+                            <button class="btn btn-sm btn-primary m-1">Report Details</button>
+                            <button class="btn btn-sm btn-danger m-1">Proceed Hearing</button>
+                            <button class="btn btn-sm btn-info m-1">Show Notices</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+

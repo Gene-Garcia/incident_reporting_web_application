@@ -123,6 +123,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\IncidentReportView\IncidentReportList.cs" />
     <Compile Include="Models\KPForms\ComplaintFormModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -158,6 +159,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\IncidentReport\CreateReport.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\IncidentReport\DisplayIncidentReports.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
