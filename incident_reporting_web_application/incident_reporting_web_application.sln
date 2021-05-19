@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "incident_reporting_web_application", "incident_reporting_web_application.vbproj", "{148D1B10-95B9-4D08-8B98-67319223EAA4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "incident_reporting_web_application", "incident_reporting_web_application.csproj", "{3F575BFE-B3CF-4372-9742-B0162DE3CF6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{148D1B10-95B9-4D08-8B98-67319223EAA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{148D1B10-95B9-4D08-8B98-67319223EAA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{148D1B10-95B9-4D08-8B98-67319223EAA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{148D1B10-95B9-4D08-8B98-67319223EAA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F575BFE-B3CF-4372-9742-B0162DE3CF6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F575BFE-B3CF-4372-9742-B0162DE3CF6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F575BFE-B3CF-4372-9742-B0162DE3CF6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F575BFE-B3CF-4372-9742-B0162DE3CF6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {18D39758-EEC5-41A0-A32F-3C2FCDF5DA9A}
+		SolutionGuid = {D435A165-01E0-44F9-BB93-ECAC299C8E3C}
 	EndGlobalSection
 EndGlobal
