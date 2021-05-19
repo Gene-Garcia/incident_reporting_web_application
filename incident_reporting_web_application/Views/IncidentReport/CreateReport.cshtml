@@ -1,0 +1,253 @@
+﻿@model incident_reporting_web_application.Models.KPForms.ComplaintFormModel
+
+@{
+    ViewBag.Title = "Create Incident Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .highlight {
+        background-color: #f9f9f9
+    }
+
+    .control-label{
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    a {
+        color: #5b6d5b;
+        text-decoration: none;
+    }
+
+    a:hover{
+        color:black;
+        text-decoration:underline;
+    }
+</style>
+
+<div class="container mt-5">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            @*complainants*@
+            <div class="form-group rounded">
+                <div class="row g-0 p-2 shadow-sm">
+                    <div class="col-lg-6 ">
+                        <p class="color-title d-block my-auto" style="font-size:18px; font-weight: 600">Complainant(s)</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text-end rounded">
+                            <a href="#" onclick="AddComplainant()" class="">Add another complainant</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="name-container" class="ps-3 pe-3 pb-4 pt-2 rounded shadow-sm mb-0" style="background-color: white">
+
+                    @*row*@
+                    <div class="row mt-3">
+                        <div class="col-lg-4">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingLName" name="last-name">
+                                <label for="floatingLName">Last Name</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mt-3 mt-lg-0">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatinfLName" name="first-name">
+                                <label for="floatingfName">First Name</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 mt-3 mt-lg-0">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingmName" name="middle-name">
+                                <label for="floatingmName">Middle Name</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-1 d-block mt-3 m-lg-auto">
+                            <a href="#" class="btn btn-danger btn-sm d-block my-auto mx-auto disabled" onclick="RemoveMe(this)">Remove</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group mt-5">
+                @Html.LabelFor(model => model.ViolationDesc, htmlAttributes: new { @class = "control-label col-md-12 color-title" })
+                <div class="col-md-12">
+                    @Html.TextAreaFor(model => model.ViolationDesc, new { @class = "form-control", rows = "3", cols = "5" })
+                    @Html.ValidationMessageFor(model => model.ViolationDesc, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group mt-5">
+
+                @Html.LabelFor(model => model.ReliefGrant, htmlAttributes: new { @class = "control-label col-md-12 color-title" })
+                <div class="col-md-12">
+                    @Html.TextAreaFor(model => model.ReliefGrant, new { @class = "form-control", rows = "3", cols = "5"})
+                    @Html.ValidationMessageFor(model => model.ReliefGrant, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*respondent*@
+            <div class="form-group rounded mt-5">
+                <div class="row g-0 p-2 shadow-sm">
+                    <div class="col-lg-6 ">
+                        <p class="color-title d-block my-auto" style="font-size:18px; font-weight: 600">Respondent(s)</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text-end rounded">
+                            <a href="#" onclick="AddRespondent()" class="">Add another respondent</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="respondent-container" class="ps-3 pe-3 pb-4 pt-2 rounded shadow-sm mb-0" style="background-color: white">
+
+                    @*row*@
+                    <div class="row mt-3">
+                        <div class="col-lg-4">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingLName" name="last-name">
+                                <label for="floatingLName">Last Name</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mt-3 mt-lg-0">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatinfLName" name="first-name">
+                                <label for="floatingfName">First Name</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 mt-3 mt-lg-0">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingmName" name="middle-name">
+                                <label for="floatingmName">Middle Name</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-1 d-block mt-3 m-lg-auto">
+
+
+                            <a href="#" class="btn btn-danger btn-sm d-block my-auto mx-auto disabled" onclick="RemoveRespondent(this)">Remove</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group mt-5">
+                @*@Html.LabelFor(model => model.DateReported, htmlAttributes: new { @class = "control-label col-md-12" })*@
+                <label class="color-title control-label col-md-12">Date of Incident</label>
+                <div class="col-md-12">
+                    @*@Html.EditorFor(model => model.DateReported, new { htmlAttributes = new { @class = "form-control datepicker" } })*@
+                    <input type="date" value="" class="form-control"/>
+                    @Html.ValidationMessageFor(model => model.DateOfIncident, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group mt-5">
+                <div class=" col-md-12">
+                    <input type="submit" value="Create Incident Report" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        function AddComplainant() {
+            var container = $("#name-container");
+            $(container).append
+                (`
+
+                <div class="row mt-3">
+                        <div class="col-lg-4">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingLName" name="last-name">
+                                <label for="floatingLName">Last Name</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mt-3 mt-lg-0">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatinfLName" name="first-name">
+                                <label for="floatingfName">First Name</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 mt-3 mt-lg-0">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingmName" name="middle-name">
+                                <label for="floatingmName">Middle Name</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-1 d-block mt-3 m-lg-auto">
+
+                            <a href="#" class="btn btn-danger btn-sm d-block my-auto mx-auto" onclick="RemoveMe(this)">Remove</a>
+                        </div>
+                    </div>
+                `);
+        };
+
+        function RemoveMe(element) {
+            var elem = document.getElementById("name-container");
+            elem.removeChild(element.parentNode.parentNode);
+        }
+
+        function AddRespondent() {
+            var container = $("#respondent-container");
+            $(container).append
+                (`
+                    <div class="row mt-3">
+                        <div class="col-lg-4">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingLName" name="last-name">
+                                <label for="floatingLName">Last Name</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mt-3 mt-lg-0">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatinfLName" name="first-name">
+                                <label for="floatingfName">First Name</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 mt-3 mt-lg-0">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingmName" name="middle-name">
+                                <label for="floatingmName">Middle Name</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-1 d-block mt-3 m-lg-auto">
+
+                            <a href="#" class="btn btn-danger btn-sm d-block my-auto mx-auto" onclick="RemoveRespondent(this)">Remove</a>
+                        </div>
+                    </div>
+                `);
+        };
+
+        function RemoveRespondent(element) {
+            var elem = document.getElementById("respondent-container");
+            elem.removeChild(element.parentNode.parentNode);
+        }
+    </script>
+}
