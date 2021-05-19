@@ -2,31 +2,31 @@
 
 @{
     ViewBag.Title = "Create Incident Report";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <style>
-    .highlight {
+    #page-content .highlight {
         background-color: #f9f9f9
     }
 
-    .control-label{
+    #page-content .control-label {
         font-weight: 600;
         font-size: 18px;
     }
 
-    a {
+    #page-content a {
         color: #5b6d5b;
         text-decoration: none;
     }
 
-    a:hover{
-        color:black;
-        text-decoration:underline;
+    #page-content a:hover {
+        color: black;
+        text-decoration: underline;
     }
 </style>
 
-<div class="container mt-5">
+<div class="container pt-5 pb-5" id="page-content">
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -74,7 +74,7 @@
 
 
                         <div class="col-lg-1 d-block mt-3 m-lg-auto">
-                            <a href="#" class="btn btn-danger btn-sm d-block my-auto mx-auto disabled" onclick="RemoveMe(this)">Remove</a>
+                            <a href="#" class="btn btn-danger btn-sm d-block my-auto mx-auto disabled text-white" onclick="RemoveMe(this)">Remove</a>
                         </div>
                     </div>
 
@@ -140,7 +140,7 @@
                         <div class="col-lg-1 d-block mt-3 m-lg-auto">
 
 
-                            <a href="#" class="btn btn-danger btn-sm d-block my-auto mx-auto disabled" onclick="RemoveRespondent(this)">Remove</a>
+                            <a href="#" class="btn btn-danger btn-sm d-block my-auto mx-auto disabled text-white" onclick="RemoveRespondent(this)">Remove</a>
                         </div>
                     </div>
 
@@ -159,7 +159,7 @@
 
             <div class="form-group mt-5">
                 <div class=" col-md-12">
-                    <input type="submit" value="Create Incident Report" class="btn btn-success" />
+                    <input type="submit" value="Create Incident Report" class="btn btn-primary" />
                 </div>
             </div>
         </div>
@@ -199,7 +199,7 @@
 
                         <div class="col-lg-1 d-block mt-3 m-lg-auto">
 
-                            <a href="#" class="btn btn-danger btn-sm d-block my-auto mx-auto" onclick="RemoveMe(this)">Remove</a>
+                            <a href="#" class="btn btn-danger btn-sm d-block my-auto mx-auto text-white" onclick="RemoveMe(this)">Remove</a>
                         </div>
                     </div>
                 `);
@@ -239,7 +239,7 @@
 
                         <div class="col-lg-1 d-block mt-3 m-lg-auto">
 
-                            <a href="#" class="btn btn-danger btn-sm d-block my-auto mx-auto" onclick="RemoveRespondent(this)">Remove</a>
+                            <a href="#" class="btn btn-danger btn-sm d-block my-auto mx-auto text-white" onclick="RemoveRespondent(this)">Remove</a>
                         </div>
                     </div>
                 `);

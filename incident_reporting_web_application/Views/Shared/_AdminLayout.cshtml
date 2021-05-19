@@ -1,0 +1,222 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .sidebar {
+        height: 100%;
+        width: 220px; /*change to 0px*/
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        overflow-x: hidden;
+        transition: 0.5s;
+        background: rgb(29,43,69);
+        background: -moz-linear-gradient(159deg, rgba(29,43,69,1) 0%, rgba(41,66,94,1) 100%);
+        background: -webkit-linear-gradient(159deg, rgba(29,43,69,1) 0%, rgba(41,66,94,1) 100%);
+        background: linear-gradient(159deg, rgba(29,43,69,1) 0%, rgba(41,66,94,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1d2b45",endColorstr="#29425e",GradientType=1);
+    }
+
+    .openbtn {
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #1d2b45;
+        color: #c5d3df;
+        padding: 10px 15px;
+        border: none;
+    }
+
+    .openbtn:hover {
+        background-color: #2C3E50;
+    }
+
+    #main-content {
+        transition: margin-left .5s;
+        margin-left: 220px;
+    }
+
+    #topNavBar {
+        transition: margin-left .5s;
+        background-color: #1d2b45;
+        margin-left: 220px;
+    }
+
+    #main-account-link {
+        font-size: 18px;
+    }
+
+    #sub-link {
+        font-size: 16px;
+    }
+
+    #main-account-link a {
+        font-weight: 600;
+        color: #8596a7;
+    }
+
+    #sub-link a {
+        font-weight: 600;
+        color: #808B96;
+        padding-left: 40px;
+    }
+
+    #main-account-link a:hover {
+        text-decoration: none;
+        background-color: #2C3E50;
+        color: #D6DBDF;
+    }
+
+    #sub-link a:hover {
+        text-decoration: none;
+        background-color: #555;
+        color: white;
+    }
+
+</style>
+
+
+<div class="sidebar" id="sidebar">
+
+    <!-- Image Top -->
+    <div class="mb-3">
+        <p class="text-center px-3 py-4" style="font-size:20px; color:#e9f5ff; font-weight:600">Incident Reporting Application</p>
+    </div>
+
+    <div class="nav-links">
+
+        <ul class="nav flex-column" id="main-account-link">
+
+            <li class="nav-item">
+                <a href="" class="nav-link ">
+                    Home
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#account-collapse" role="button" aria-expanded="false" aria-controls="account-collapse">
+                    Account ▼
+                </a>
+
+                <div class="collapse" id="account-collapse" style="background-color: #273746;">
+                    <ul class="nav flex-column" id="sub-link">
+                        <li class="nav-item">
+                            <a href="" class="nav-link" id="">My Account</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link" id="">Register New User Account</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#incidentreport-collapse" role="button" aria-expanded="false" aria-controls="incidentreport-collapse">
+                    Incident Report ▼
+                </a>
+
+                <div class="collapse" id="incidentreport-collapse" style="background-color: #273746;">
+                    <ul class="nav flex-column" id="sub-link">
+                        <li class="nav-item">
+                            <a href="" class="nav-link" id="">Create Incident Report</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link" id="">Display Incident Reports</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link" id="">Search for an Incident Report</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#notice-collapse" role="button" aria-expanded="false" aria-controls="notice-collapse">
+                    Notices ▼
+                </a>
+
+                <div class="collapse" id="notice-collapse" style="background-color: #273746;">
+                    <ul class="nav flex-column" id="sub-link">
+                        <li class="nav-item">
+                            <a href="" class="nav-link" id="">Create Notice Forms</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link" id="">Display Notice Schedules</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link" id="">Update Notice Status</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#hearing-collapse" role="button" aria-expanded="false" aria-controls="hearing-collapse">
+                    Hearing Process ▼
+                </a>
+
+                <div class="collapse" id="hearing-collapse" style="background-color: #273746;">
+                    <ul class="nav flex-column" id="sub-link">
+                        <li class="nav-item">
+                            <a href="" class="nav-link" id="">Show All Hearing Mediation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link" id="">Show All Hearing Conciliation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link" id="">Show All Hearing Arbtiration</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="" class="nav-link ">
+                    Audit Trail
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<div id="topNavBar" class="">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="">
+            <button class="openbtn" onclick="toggleNav()">☰</button>
+
+            <a class="navbar-brand" href="#" style="color:#d8e3ec">Barangay Sinisian, Calaca, Batangas</a>
+        </div>
+    </nav>
+</div>
+
+<div id="main-content" class="rounded bordered">
+    <div class="container shadow-lg mb-3 mt-5 bg-white rounded" style="background-color: white;" radius="50px">
+        @RenderBody()
+    </div>
+</div>
+
+<script>
+    function toggleNav() {
+        var navWidth = document.getElementById('sidebar'), style = window.getComputedStyle(navWidth), width = style.getPropertyValue('width');
+        if (width == "0px") {
+            document.getElementById("sidebar").style.width = "220px";
+            document.getElementById("main-content").style.marginLeft = "220px";
+            document.getElementById("topNavBar").style.marginLeft = "220px";
+        } else if (width == "220px") {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("main-content").style.marginLeft = "0";
+            document.getElementById("topNavBar").style.marginLeft = "0";
+        }
+    }
+    $(document).click(function (e) {
+        if (!$(e.target).is('.nav-links')) {
+            $('.collapse').collapse('hide');
+        }
+    });
+</script>
+
+@Scripts.Render("~/bundles/jquery")
+@RenderSection("scripts", required: false)
