@@ -35,46 +35,46 @@
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
             @*complainants*@
-            <div class="form-group rounded">
-                <div class="row g-0 p-2 shadow-sm">
+            <div class=" rounded" id="dynamic-complainant">
+                <div class="row g-0 ">
                     <div class="col-lg-6 ">
                         <p class="color-title d-block my-auto" style="font-size:18px; font-weight: 600">Complainant(s)</p>
                     </div>
                     <div class="col-lg-6">
                         <div class="text-end rounded">
-                            <a href="#" onclick="AddComplainant()" class="">Add another complainant</a>
+                            <a href="#dynamic-complainant" onclick="AddComplainant()" class="">Add another complainant</a>
                         </div>
                     </div>
                 </div>
 
-                <div id="name-container" class="ps-3 pe-3 pb-4 pt-2 rounded shadow-sm mb-0" style="background-color: white">
+                <div id="name-container" class="rounded mb-0" style="background-color: white">
 
                     @*row*@
-                    <div class="row mt-3">
+                    <div class="row">
                         <div class="col-lg-4">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingLName" name="last-name">
+                                <input type="text" class="form-control" id="floatingLName" name="last-name" required />
                                 <label for="floatingLName">Last Name</label>
                             </div>
                         </div>
 
                         <div class="col-lg-4 col-md-6 mt-3 mt-lg-0">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatinfLName" name="first-name">
+                                <input type="text" class="form-control" id="floatinfLName" name="first-name" required />
                                 <label for="floatingfName">First Name</label>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-6 mt-3 mt-lg-0">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingmName" name="middle-name">
+                                <input type="text" class="form-control" id="floatingmName" name="middle-name" required />
                                 <label for="floatingmName">Middle Name</label>
                             </div>
                         </div>
 
 
                         <div class="col-lg-1 d-block mt-3 m-lg-auto">
-                            <a href="#" class="btn btn-danger btn-sm d-block my-auto mx-auto disabled text-white" onclick="RemoveMe(this)">Remove</a>
+                            <a href="#dynamic-complainant" class="btn btn-danger btn-sm d-block my-auto mx-auto disabled text-white" onclick="RemoveMe(this)">Remove</a>
                         </div>
                     </div>
 
@@ -99,39 +99,39 @@
             </div>
 
             @*respondent*@
-            <div class="form-group rounded mt-5">
-                <div class="row g-0 p-2 shadow-sm">
+            <div class="rounded mt-5" id="dynamic-respondent">
+                <div class="row g-0">
                     <div class="col-lg-6 ">
                         <p class="color-title d-block my-auto" style="font-size:18px; font-weight: 600">Respondent(s)</p>
                     </div>
                     <div class="col-lg-6">
                         <div class="text-end rounded">
-                            <a href="#" onclick="AddRespondent()" class="">Add another respondent</a>
+                            <a href="#dynamic-respondent" onclick="AddRespondent()" class="">Add another respondent</a>
                         </div>
                     </div>
                 </div>
 
-                <div id="respondent-container" class="ps-3 pe-3 pb-4 pt-2 rounded shadow-sm mb-0" style="background-color: white">
+                <div id="respondent-container" class="rounded mb-0" style="background-color: white">
 
                     @*row*@
-                    <div class="row mt-3">
+                    <div class="row">
                         <div class="col-lg-4">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingLName" name="last-name">
+                                <input type="text" class="form-control" id="floatingLName" name="last-name" required />
                                 <label for="floatingLName">Last Name</label>
                             </div>
                         </div>
 
                         <div class="col-lg-4 col-md-6 mt-3 mt-lg-0">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatinfLName" name="first-name">
+                                <input type="text" class="form-control" id="floatinfLName" name="first-name" required />
                                 <label for="floatingfName">First Name</label>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-6 mt-3 mt-lg-0">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingmName" name="middle-name">
+                                <input type="text" class="form-control" id="floatingmName" name="middle-name" required />
                                 <label for="floatingmName">Middle Name</label>
                             </div>
                         </div>
@@ -140,7 +140,7 @@
                         <div class="col-lg-1 d-block mt-3 m-lg-auto">
 
 
-                            <a href="#" class="btn btn-danger btn-sm d-block my-auto mx-auto disabled text-white" onclick="RemoveRespondent(this)">Remove</a>
+                            <a href="#dynamic-respondent" class="btn btn-danger btn-sm d-block my-auto mx-auto disabled text-white" onclick="RemoveRespondent(this)">Remove</a>
                         </div>
                     </div>
 
@@ -152,14 +152,15 @@
                 <label class="color-title control-label col-md-12">Date of Incident</label>
                 <div class="col-md-12">
                     @*@Html.EditorFor(model => model.DateReported, new { htmlAttributes = new { @class = "form-control datepicker" } })*@
-                    <input type="date" value="" class="form-control"/>
+                    <input type="date" value="" class="form-control" required/>
                     @Html.ValidationMessageFor(model => model.DateOfIncident, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group mt-5">
-                <div class=" col-md-12">
+                <div class="col-md-12">
                     <input type="submit" value="Create Incident Report" class="btn btn-primary" />
+                    <a href="#" class="btn btn-light" style="text-decoration:none" onclick="location.reload()   ">Clear</a>
                 </div>
             </div>
         </div>
@@ -177,21 +178,21 @@
                 <div class="row mt-3">
                         <div class="col-lg-4">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingLName" name="last-name">
+                                <input type="text" class="form-control" id="floatingLName" name="last-name" required />
                                 <label for="floatingLName">Last Name</label>
                             </div>
                         </div>
 
                         <div class="col-lg-4 col-md-6 mt-3 mt-lg-0">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatinfLName" name="first-name">
+                                <input type="text" class="form-control" id="floatinfLName" name="first-name" required />
                                 <label for="floatingfName">First Name</label>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-6 mt-3 mt-lg-0">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingmName" name="middle-name">
+                                <input type="text" class="form-control" id="floatingmName" name="middle-name" required />
                                 <label for="floatingmName">Middle Name</label>
                             </div>
                         </div>
@@ -199,7 +200,7 @@
 
                         <div class="col-lg-1 d-block mt-3 m-lg-auto">
 
-                            <a href="#" class="btn btn-danger btn-sm d-block my-auto mx-auto text-white" onclick="RemoveMe(this)">Remove</a>
+                            <a href="#dynamic-complainant" class="btn btn-danger btn-sm d-block my-auto mx-auto text-white" onclick="RemoveMe(this)">Remove</a>
                         </div>
                     </div>
                 `);
@@ -217,21 +218,21 @@
                     <div class="row mt-3">
                         <div class="col-lg-4">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingLName" name="last-name">
+                                <input type="text" class="form-control" id="floatingLName" name="last-name" required />
                                 <label for="floatingLName">Last Name</label>
                             </div>
                         </div>
 
                         <div class="col-lg-4 col-md-6 mt-3 mt-lg-0">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatinfLName" name="first-name">
+                                <input type="text" class="form-control" id="floatinfLName" name="first-name" required />
                                 <label for="floatingfName">First Name</label>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-6 mt-3 mt-lg-0">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingmName" name="middle-name">
+                                <input type="text" class="form-control" id="floatingmName" name="middle-name" required />
                                 <label for="floatingmName">Middle Name</label>
                             </div>
                         </div>
@@ -239,7 +240,7 @@
 
                         <div class="col-lg-1 d-block mt-3 m-lg-auto">
 
-                            <a href="#" class="btn btn-danger btn-sm d-block my-auto mx-auto text-white" onclick="RemoveRespondent(this)">Remove</a>
+                            <a href="#dynamic-respondent" class="btn btn-danger btn-sm d-block my-auto mx-auto text-white" onclick="RemoveRespondent(this)">Remove</a>
                         </div>
                     </div>
                 `);

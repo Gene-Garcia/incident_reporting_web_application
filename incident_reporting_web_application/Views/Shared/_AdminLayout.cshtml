@@ -52,6 +52,11 @@
         font-size: 16px;
     }
 
+    .nav-item {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
     #main-account-link a {
         font-weight: 600;
         color: #8596a7;
@@ -184,10 +189,10 @@
 
 <div id="topNavBar" class="">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="">
-            <button class="openbtn" onclick="toggleNav()">☰</button>
+        <div class="d-inline">
+            <button class="openbtn d-inline" onclick="toggleNav()">☰</button>
 
-            <a class="navbar-brand" href="#" style="color:#d8e3ec">Barangay Sinisian, Calaca, Batangas</a>
+            <p class="navbar-brand display-6 d-inline" style="color:#d8e3ec">Barangay Sinisian, Calaca, Batangas</p>
         </div>
     </nav>
 </div>
@@ -199,6 +204,14 @@
 </div>
 
 <script>
+    window.onload = function () {
+        if (window.innerWidth <= 750) {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("main-content").style.marginLeft = "0";
+            document.getElementById("topNavBar").style.marginLeft = "0";
+        }
+    }
+
     function toggleNav() {
         var navWidth = document.getElementById('sidebar'), style = window.getComputedStyle(navWidth), width = style.getPropertyValue('width');
         if (width == "0px") {
