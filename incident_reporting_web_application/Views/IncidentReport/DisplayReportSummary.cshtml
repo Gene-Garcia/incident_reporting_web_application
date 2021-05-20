@@ -1,0 +1,148 @@
+﻿@model incident_reporting_web_application.Models.IncidentReportView.IncidentReportSummary
+
+@{
+    ViewBag.Title = "Report Summary";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .color-heading{
+        font-size: 23px;
+        font-weight:700;
+    }
+
+    .color-sub-heading{
+        font-size: 16px;
+    }
+
+    .color-title{
+        font-weight: 600;
+        font-size: 17.3px;
+    }
+
+    .date{
+        font-weight: 600;
+    }
+
+    .desc{
+        line-height: 33px;  
+    }
+
+    .sub-title{
+        font-weight: 600;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <label class="control-label color-title">Search for an incident report</label>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInputGrid" value="2020-08-3C0">
+                <label for="floatingInputGrid">Case No.</label>
+            </div>
+        </div>
+    </div>    
+</div>
+
+<div class="container mt-5 mb-5 p-3 shadow rounded">
+
+    <h1 class="color-heading">Case Report Summary of Case <span style="text-decoration:underline">@Model.CaseNo</span></h1>
+    <p class="color-sub-heading" style="font-style:italic">@Model.CaseTitle</p>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <p class="color-title mb-0 pb-1">Complainant(s)</p>
+            <ul class="list-group">
+                @foreach (var complainant in Model.ComplainantsFullName)
+                {
+                    <li class="list-group-item">@complainant</li>
+                }
+            </ul>
+        </div>
+
+        <div class="col-md-6">
+            <p class="color-title mb-0 pb-1 mt-4 mt-md-0">Respondent(s)</p>
+            <ul class="list-group">
+                @foreach (var respondent in Model.RespondentsFullName)
+                {
+                    <li class="list-group-item">@respondent</li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <p class="color-title mt-4">Incident Description</p>
+    <div class="row">
+        <div class="col-md-3">
+            <p>Date of Incident: <span class="date">@Model.DateOfIncident.ToString("hh:mm tt, MMM dd, yyyy")</span></p>
+            <p>Date Reported <span class="date">@Model.DateReported.ToString("hh:mm tt, MMM dd, yyyy")</span></p>
+        </div>
+
+        <div class="col-md-9">
+            <p class="color-message desc">@Model.IncidentDesc</p>
+        </div>
+    </div>
+
+    <p class="color-title mt-5">Hearing Information</p>
+    @{
+        string btnClass = "btn-primary";
+        if (Model.HearingStatus.ToUpper() == "MEDIATION") { btnClass = "btn-info"; }
+        else if (Model.HearingStatus.ToUpper() == "CONCILIATION") { btnClass = "btn-warning"; }
+        else if (Model.HearingStatus.ToUpper() == "ARBITRATION") { btnClass = "btn-danger"; }
+    }
+
+    @{
+        string displayTitle = "col-3 col-xl-2";
+        string content = "col-9 col-xl-10";
+    }
+
+    <div class="row">
+        <div class="@displayTitle">
+            <span class="sub-title">Status:</span>
+        </div>
+
+        <div class="@content">
+            <span class="btn @btnClass btn-sm">@Model.HearingStatus</span>  //redirect to hearing
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="@displayTitle">
+            <span class="sub-title">Date of Hearing:</span>
+        </div>
+
+        <div class="@content">
+            <span class="">@Model.HearingDate.ToString("hh:mm tt, MMM dd, yyyy")</span>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="@displayTitle">
+            <span class="sub-title">Date of Settlement:</span>
+        </div>
+
+        <div class="@content">
+            <span class="">@Model.DateSettled.ToString("hh:mm tt, MMM dd, yyyy")</span>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-md-3 col-xl-2">
+            <span class="sub-title">Final Agreement:</span>
+        </div>
+
+        <div class="col-md-9 col-xl-10">
+            <span class="color-message desc">@Model.FinalAgreement</span>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <hr />
+
+        <div class="col-12 text-end">
+            <p>Processed by: <span style="font-weight: 600;">@Model.ProcessedBy</span></p>
+        </div>
+    </div>
+
+</div>

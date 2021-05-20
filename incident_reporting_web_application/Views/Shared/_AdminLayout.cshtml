@@ -4,6 +4,27 @@
 }
 
 <style>
+    .color-heading {
+        color: #4b778d;
+    }
+
+    .color-sub-heading {
+        color: #004953;
+    }
+
+    .color-title {
+        color: #325288;
+    }
+
+    .color-message {
+        color: black;
+    }
+
+    .color-misc {
+        color: #d1e231;
+    }
+
+
     .sidebar {
         height: 100%;
         width: 220px; /*change to 0px*/
@@ -131,7 +152,7 @@
                             <a href="/IncidentReport/DisplayIncidentReports" class="nav-link" id="">Display Incident Reports</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link" id="">Search for an Incident Report</a>
+                            <a href="/IncidentReport/DisplayReportSummary" class="nav-link" id="">Search for an Incident Report</a>
                         </li>
                     </ul>
                 </div>
@@ -198,7 +219,7 @@
 </div>
 
 <div id="main-content" class="rounded bordered">
-    <div class="container shadow-lg mb-3 mt-5 bg-white rounded" style="background-color: white;" radius="50px">
+    <div class="" style="background-color: white;" radius="50px">
         @RenderBody()
     </div>
 </div>

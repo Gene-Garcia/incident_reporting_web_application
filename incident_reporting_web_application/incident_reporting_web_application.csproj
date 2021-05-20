@@ -124,6 +124,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IncidentReportView\IncidentReportList.cs" />
+    <Compile Include="Models\IncidentReportView\IncidentReportSummary.cs" />
     <Compile Include="Models\KPForms\ComplaintFormModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -160,6 +161,7 @@
     <Content Include="Views\IncidentReport\CreateReport.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\IncidentReport\DisplayIncidentReports.cshtml" />
+    <Content Include="Views\IncidentReport\DisplayReportSummary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
