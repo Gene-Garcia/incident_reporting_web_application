@@ -1,0 +1,91 @@
+﻿@model incident_reporting_web_application.Models.NoticeView.ScheduleSelection
+
+@{
+    ViewBag.Title = "ScheduleSelection";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .color-heading {
+        font-size: 23px;
+        font-weight: 700;
+    }
+
+    .color-sub-heading {
+        font-size: 16px;
+    }
+
+    .color-title {
+        font-weight: 600;
+        font-size: 17.3px;
+    }
+</style>
+
+<div class="container mt-5 mb-5 p-3 shadow roundeds">
+
+    <h1 class="color-heading">Case Report Summary of Case <span style="text-decoration:underline">@Model.CaseNo</span></h1>
+    <p class="color-sub-heading" style="font-style:italic">@Model.CaseTitle</p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-10">
+                    <p class="color-title mb-0 pb-1">Complainant(s)</p>
+                    <ul class="list-group">
+                        @foreach (var complainant in Model.ComplainantsFullName)
+                        {
+                            <li class="list-group-item">@complainant</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-10 ">
+                    <p class="color-title mb-0 pb-1">Respondent(s)</p>
+                    <ul class="list-group">
+                        @foreach (var respondent in Model.RespondentsFullName)
+                        {
+                            <li class="list-group-item">@respondent</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="row">
+                <div class="col-10">
+                    <p class="color-title mb-0 pb-1">Select Hearing Schedule</p>
+                    <div class="form-floating">
+                        <input type="date" class="form-control" id="floatingInputGrid">
+                        <label for="floatingInputGrid">Hearing Date</label>
+                    </div>
+                    <div class="form-floating mt-4">
+                        <input type="time" class="form-control" id="floatingInputGrid">
+                        <label for="floatingInputGrid">Hearing Time</label>
+                    </div>
+
+                    <div class="form-group mt-4 text-end">
+                        <button class="btn btn-primary">Select Date</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-10">
+                    <p class="color-title mb-0 pb-1">Present Hearing Schedule(s)</p>
+                    <ul class="list-group list-group-flush">
+                        @foreach (var data in Model.ScheduleTaken)
+                        {
+                            <li class="list-group-item">@data.Item1.ToString("MMM dd, yyyy"): <span style="font-weight:600; font-style: italic">@data.Item2</span></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

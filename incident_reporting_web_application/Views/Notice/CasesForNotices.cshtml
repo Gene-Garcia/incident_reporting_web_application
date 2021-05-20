@@ -1,0 +1,69 @@
+﻿@model IEnumerable<incident_reporting_web_application.Models.NoticeView.ForNotice>
+
+@{
+    ViewBag.Title = "CasesForNotices";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="container mt-5 mb-5 p-3 shadow rounded">
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Case No.</td>
+                    <td>Case Title</td>
+                    <td>Date Reported</td>
+                    <td>Processed By</td>
+                    <td>Date of Hearing</td>
+                    <td>Notices created</td>
+                    <td></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var record in Model)
+                {
+                <tr>
+                    @{
+                        var hasSchedule = false;
+                        var display = "";
+
+                        if (record.HearingDate != null)
+                        {
+                            hasSchedule = true;
+                            display = ((DateTime)record.HearingDate).ToString("MMM dd, yyyy");
+                        }
+                        else
+                        {
+                            hasSchedule = false;
+                            display = "N/A";
+                        }
+                    }
+                    <td>@record.CaseNo</td>
+                    <td>@record.CaseTitle</td>
+                    <td>@record.DateReported</td>
+                    <td>@record.ProcessedBy</td>
+                    <td>@display</td>
+                    <td></td>
+                    <td>
+                        @{
+                            if (hasSchedule)
+                            {
+                                <a href="/Notice/ManageCaseNotice" class="btn btn-primary">Create Notice Form(s)</a>
+                            }
+                            else
+                            {
+                                <a href="/Notice/ScheduleSelection" class="btn btn-light">Set Meeting Schedule</a>
+                            }
+                        }
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

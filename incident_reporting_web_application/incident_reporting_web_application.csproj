@@ -120,6 +120,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IncidentReportController.cs" />
+    <Compile Include="Controllers\NoticeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -127,6 +128,9 @@
     <Compile Include="Models\IncidentReportView\IncidentReportSummary.cs" />
     <Compile Include="Models\KPForms\ComplaintFormModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\NoticeView\ForNotice.cs" />
+    <Compile Include="Models\NoticeView\NoticeCreation.cs" />
+    <Compile Include="Models\NoticeView\ScheduleSelection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +166,8 @@
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\IncidentReport\DisplayIncidentReports.cshtml" />
     <Content Include="Views\IncidentReport\DisplayReportSummary.cshtml" />
+    <Content Include="Views\Notice\CasesForNotices.cshtml" />
+    <Content Include="Views\Notice\ScheduleSelection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
