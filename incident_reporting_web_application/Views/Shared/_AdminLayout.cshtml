@@ -101,6 +101,10 @@
         color: white;
     }
 
+    .x-nav-title {
+        font-size: 19px;
+        color: #d8e3ec
+    }
 </style>
 
 
@@ -211,10 +215,10 @@
 
 <div id="topNavBar" class="">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="d-inline">
-            <button class="openbtn d-inline" onclick="toggleNav()">☰</button>
+        <div class="d-flex flex-row">
+            <button class="openbtn" onclick="toggleNav()">☰</button>
 
-            <p class="navbar-brand display-6 d-inline" style="color:#d8e3ec">Barangay Sinisian, Calaca, Batangas</p>
+            <span class="x-nav-title m-auto">Barangay Sinisian, Calaca, Batangas</span>
         </div>
     </nav>
 </div>
@@ -259,11 +263,11 @@
             document.getElementById("topNavBar").style.marginLeft = "0";
         }
     }
-    $(document).click(function (e) {
+    @*$(document).click(function (e) {
         if (!$(e.target).is('.nav-links')) {
             $('.collapse').collapse('hide');
         }
-    });
+    });*@
 </script>
 
 @Scripts.Render("~/bundles/jquery")

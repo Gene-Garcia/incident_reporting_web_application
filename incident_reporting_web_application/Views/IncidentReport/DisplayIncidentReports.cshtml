@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="container">
+<div class="container mt-5 mb-5 px-3 py-4 shadow rounded" >
 
     <div class="table-responsive">
         <table class="table table-striped">
@@ -37,10 +37,9 @@
                         <td>@item.DateProcessed.ToLongDateString()</td>
                         <td>@item.HearingStatus</td>
                         <td class="text-center">
-                            <button class="btn btn-sm btn-success m-1">Summary</button>
-                            <button class="btn btn-sm btn-primary m-1">Report Details</button>
-                            <button class="btn btn-sm btn-danger m-1">Proceed Hearing</button>
-                            <button class="btn btn-sm btn-info m-1">Show Notices</button>
+                            <a href="/IncidentReport/DisplayReportSummary" class="btn btn-sm btn-primary m-1">Report Details</a>
+                            @*<button class="btn btn-sm btn-danger m-1">Proceed Hearing</button>*@
+                            <a href="/Notice/ManageCaseNotice" class="btn btn-sm btn-info m-1">Show Notices</a>
                         </td>
                     </tr>
                 }

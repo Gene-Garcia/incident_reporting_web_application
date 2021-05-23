@@ -1,7 +1,7 @@
 ﻿@model incident_reporting_web_application.Models.NoticeView.ScheduleSelection
 
 @{
-    ViewBag.Title = "ScheduleSelection";
+    ViewBag.Title = "Schedule Selection";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -21,15 +21,15 @@
     }
 </style>
 
-<div class="container mt-5 mb-5 p-3 shadow rounded">
+<div class="container mt-5 mb-5 px-3 py-4 shadow rounded">
 
     <h1 class="color-heading">Case Report Summary of Case <span style="text-decoration:underline">@Model.CaseNo</span></h1>
     <p class="color-sub-heading" style="font-style:italic">@Model.CaseTitle</p>
 
-    <div class="row">
+    <div class="row g-5">
         <div class="col-md-6">
             <div class="row">
-                <div class="col-10">
+                <div class="col-12">
                     <p class="color-title mb-0 pb-1">Complainant(s)</p>
                     <ul class="list-group">
                         @foreach (var complainant in Model.ComplainantsFullName)
@@ -41,7 +41,7 @@
             </div>
 
             <div class="row mt-4">
-                <div class="col-10 ">
+                <div class="col-12 ">
                     <p class="color-title mb-0 pb-1">Respondent(s)</p>
                     <ul class="list-group">
                         @foreach (var respondent in Model.RespondentsFullName)
@@ -56,7 +56,7 @@
         <div class="col-md-6">
 
             <div class="row">
-                <div class="col-10">
+                <div class="col-12">
                     <p class="color-title mb-0 pb-1">Select Hearing Schedule</p>
                     <div class="form-floating">
                         <input type="date" class="form-control" id="floatingInputGrid">
@@ -74,7 +74,7 @@
             </div>
 
             <div class="row mt-4">
-                <div class="col-10">
+                <div class="col-12">
                     <p class="color-title mb-0 pb-1">Present Hearing Schedule(s)</p>
                     <ul class="list-group list-group-flush">
                         @foreach (var data in Model.ScheduleTaken)
