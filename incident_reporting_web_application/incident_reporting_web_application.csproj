@@ -168,6 +168,7 @@
     <Content Include="Views\IncidentReport\DisplayReportSummary.cshtml" />
     <Content Include="Views\Notice\CasesForNotices.cshtml" />
     <Content Include="Views\Notice\ScheduleSelection.cshtml" />
+    <Content Include="Views\Notice\ManageCaseNotice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
