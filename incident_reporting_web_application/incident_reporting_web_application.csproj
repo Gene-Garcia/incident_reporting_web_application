@@ -130,6 +130,7 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\NoticeView\ForNotice.cs" />
     <Compile Include="Models\NoticeView\NoticeCreation.cs" />
+    <Compile Include="Models\NoticeView\Notices.cs" />
     <Compile Include="Models\NoticeView\ScheduleSelection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -169,6 +170,7 @@
     <Content Include="Views\Notice\CasesForNotices.cshtml" />
     <Content Include="Views\Notice\ScheduleSelection.cshtml" />
     <Content Include="Views\Notice\ManageCaseNotice.cshtml" />
+    <Content Include="Views\Notice\DisplayNotices.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

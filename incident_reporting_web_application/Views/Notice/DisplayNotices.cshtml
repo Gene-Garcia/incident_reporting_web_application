@@ -1,0 +1,100 @@
+﻿@model IEnumerable<incident_reporting_web_application.Models.NoticeView.IncidentReport>
+
+@{
+    ViewBag.Title = "Notices";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .color-title{
+        font-size: 19px;
+        font-weight: 600
+    }
+
+    .color-sub-heading{
+        font-weight: 500;
+        font-style:italic;
+    }
+
+    .hearing-type{
+        font-size: 18px;
+        font-weight: 600
+    }
+
+    .to-notify, .notified{
+        font-size: 17px;
+        font-weight: 600;
+    }
+
+    .to-notify{
+        color: red;
+    }
+
+    .notified{
+        color:limegreen;
+    }
+</style>
+
+<div class="container mt-5 mb-5 p-3 shadow rounded">
+
+    @foreach (var report in Model)
+    {
+        <div class="card border-0 mb-4 shadow-sm" style="background-color: #eeeeee">
+            <div class="row px-3 pt-3">
+                <div class="col-md-6 pb-0">
+                    <p class="color-title pb-0">Incident Case #<span style="text-decoration:underline">@report.CaseNo</span></p>
+                    <p class="color-sub-heading pb-0">@report.CaseTitle</p>
+                </div>
+                <div class="col-md-6 text-md-end pb-0">
+                    <p class="hearing-type pb-0">@report.HearingType.Substring(0, 1)@report.HearingType.Substring(1).ToLower() Hearing</p>
+                    <p><span style="font-weight:600;">Hearing Schedule:</span> @report.HearingDate.ToString("MMM dd, yyyy, hh:mm tt")</p>
+                </div>
+            </div>
+            <div class="card-body bg-light ms-md-5 p-2">
+                <div class="table-responsive p-0">
+                    <table class="table table-striped p-0">
+                        <thead>
+                            <tr>
+                                <td>Notice Type</td>
+                                <td>Resident Name(s)</td>
+                                <td>Status</td>
+                                <td>Action</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var notice in report.Notices)
+                            {
+                                var noticeStatusColor = "to-notify";
+                                var needsNotification = true;
+                                if (notice.NoticeStatus == "NOTIFIED")
+                                {
+                                    noticeStatusColor = "notified";
+                                    needsNotification = false;
+                                }
+
+                                <tr>
+                                    <td>@notice.NoticeType</td>
+                                    <td>@string.Join(" || ", notice.ResidentNames)</td>
+                                    <td class="@noticeStatusColor">@notice.NoticeStatus</td>
+                                    <td>
+                                        @if (needsNotification)
+                                        {
+                                            <button class="btn btn-primary btn-sm">Set to Notified</button>
+                                        }
+                                        else
+                                        {
+                                            <span>-</span>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

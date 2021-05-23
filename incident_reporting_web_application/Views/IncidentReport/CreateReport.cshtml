@@ -20,10 +20,10 @@
         text-decoration: none;
     }
 
-    #page-content a:hover {
-        color: black;
-        text-decoration: underline;
-    }
+        #page-content a:hover {
+            color: black;
+            text-decoration: underline;
+        }
 </style>
 
 <div class="container pt-5 pb-5" id="page-content">
@@ -93,7 +93,7 @@
 
                 @Html.LabelFor(model => model.ReliefGrant, htmlAttributes: new { @class = "control-label col-md-12 color-title" })
                 <div class="col-md-12">
-                    @Html.TextAreaFor(model => model.ReliefGrant, new { @class = "form-control", rows = "3", cols = "5"})
+                    @Html.TextAreaFor(model => model.ReliefGrant, new { @class = "form-control", rows = "3", cols = "5" })
                     @Html.ValidationMessageFor(model => model.ReliefGrant, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -152,7 +152,7 @@
                 <label class="color-title control-label col-md-12">Date of Incident</label>
                 <div class="col-md-12">
                     @*@Html.EditorFor(model => model.DateReported, new { htmlAttributes = new { @class = "form-control datepicker" } })*@
-                    <input type="date" value="" class="form-control" required/>
+                    <input type="date" value="" class="form-control" required />
                     @Html.ValidationMessageFor(model => model.DateOfIncident, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -164,6 +164,10 @@
                 </div>
             </div>
         </div>
+
+        <canvas id="canvas" class="canvas">
+
+        </canvas>
     }
 </div>
 @section Scripts {
@@ -175,35 +179,35 @@
             $(container).append
                 (`
 
-                <div class="row mt-3">
-                        <div class="col-lg-4">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingLName" name="last-name" required />
-                                <label for="floatingLName">Last Name</label>
+                    <div class="row mt-3">
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="floatingLName" name="last-name" required />
+                                    <label for="floatingLName">Last Name</label>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 mt-3 mt-lg-0">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="floatinfLName" name="first-name" required />
+                                    <label for="floatingfName">First Name</label>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 mt-3 mt-lg-0">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="floatingmName" name="middle-name" required />
+                                    <label for="floatingmName">Middle Name</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-1 d-block mt-3 m-lg-auto">
+
+                                <a href="#dynamic-complainant" class="btn btn-danger btn-sm d-block my-auto mx-auto text-white" onclick="RemoveMe(this)">Remove</a>
                             </div>
                         </div>
-
-                        <div class="col-lg-4 col-md-6 mt-3 mt-lg-0">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatinfLName" name="first-name" required />
-                                <label for="floatingfName">First Name</label>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 mt-3 mt-lg-0">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingmName" name="middle-name" required />
-                                <label for="floatingmName">Middle Name</label>
-                            </div>
-                        </div>
-
-
-                        <div class="col-lg-1 d-block mt-3 m-lg-auto">
-
-                            <a href="#dynamic-complainant" class="btn btn-danger btn-sm d-block my-auto mx-auto text-white" onclick="RemoveMe(this)">Remove</a>
-                        </div>
-                    </div>
-                `);
+                    `);
         };
 
         function RemoveMe(element) {
@@ -215,35 +219,35 @@
             var container = $("#respondent-container");
             $(container).append
                 (`
-                    <div class="row mt-3">
-                        <div class="col-lg-4">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingLName" name="last-name" required />
-                                <label for="floatingLName">Last Name</label>
+                        <div class="row mt-3">
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="floatingLName" name="last-name" required />
+                                    <label for="floatingLName">Last Name</label>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 mt-3 mt-lg-0">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="floatinfLName" name="first-name" required />
+                                    <label for="floatingfName">First Name</label>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 mt-3 mt-lg-0">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="floatingmName" name="middle-name" required />
+                                    <label for="floatingmName">Middle Name</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-1 d-block mt-3 m-lg-auto">
+
+                                <a href="#dynamic-respondent" class="btn btn-danger btn-sm d-block my-auto mx-auto text-white" onclick="RemoveRespondent(this)">Remove</a>
                             </div>
                         </div>
-
-                        <div class="col-lg-4 col-md-6 mt-3 mt-lg-0">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatinfLName" name="first-name" required />
-                                <label for="floatingfName">First Name</label>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 mt-3 mt-lg-0">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingmName" name="middle-name" required />
-                                <label for="floatingmName">Middle Name</label>
-                            </div>
-                        </div>
-
-
-                        <div class="col-lg-1 d-block mt-3 m-lg-auto">
-
-                            <a href="#dynamic-respondent" class="btn btn-danger btn-sm d-block my-auto mx-auto text-white" onclick="RemoveRespondent(this)">Remove</a>
-                        </div>
-                    </div>
-                `);
+                    `);
         };
 
         function RemoveRespondent(element) {

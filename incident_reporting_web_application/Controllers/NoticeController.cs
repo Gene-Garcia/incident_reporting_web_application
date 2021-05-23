@@ -52,9 +52,55 @@ namespace incident_reporting_web_application.Controllers
         }
 
         [HttpGet]
-        public ActionResult DisplayNotices() //group by case, card design. each card for each case with numerous notices. per card, group by hearing type to display its notices.
+        public ActionResult DisplayNotices() //group by case, card design. each card for each case with numerous notices. per card, group by hearing type to display its notices. If all notice status is notifed, display in the HEARING PROCESS MODULE
         {
-            return View();
+
+            List<IncidentReport> reports = new List<IncidentReport>();
+
+            reports.Add(new IncidentReport(
+                "2021-04-AC2",
+                "Hilario v Viceral",
+                "MEDIATION",
+                DateTime.Parse("04/15/2021"),
+                new List<ReportNotice>() { 
+                    new ReportNotice("Hearing Notice", new List<string>() { "HILARIO, Jude, Martin", "HILARIO, Judemar, Martin" }, "TO NOTIFY"),
+                    new ReportNotice("Summon Notice", new List<string>() { "VICERAL, Alex, Jun" }, "TO NOTIFY"),
+                    new ReportNotice("Subpoena Notice", new List<string>() { "Orea, Milan, Mil" }, "TO NOTIFY")
+                }));
+
+            reports.Add(new IncidentReport(
+                "2021-04-4Z0",
+                "Perez v Padilla",
+                "MEDIATION",
+                DateTime.Parse("04/16/2021"),
+                new List<ReportNotice>() {
+                    new ReportNotice("Hearing Notice", new List<string>() { "PEREZ, Nico, Martin" }, "NOTIFIED"),
+                    new ReportNotice("Summon Notice", new List<string>() { "PADILLA, Annie, Jean", "DIMAILIG, Birth, Castro" }, "TO NOTIFY")
+                }));
+
+            reports.Add(new IncidentReport(
+                "2021-04-Z52",
+                "Cortez v Atienza",
+                "ARBITRATION",
+                DateTime.Parse("04/17/2021"),
+                new List<ReportNotice>() {
+                    new ReportNotice("Hearing Notice", new List<string>() { "CORTEZ, Mik, Pilar" }, "TO NOTIFY"),
+                    new ReportNotice("Summon Notice", new List<string>() { "ATIENZA, Joi, Marin", "BING, Arch, Monti" }, "TO NOTIFY"),
+                    new ReportNotice("Subpoena Notice", new List<string>() { "GALVEZ, Leo, Coring", "MARIA, Vhong, Viceral" }, "NOTIFIED")
+                }));
+
+            reports.Add(new IncidentReport(
+                "2021-04-AC2",
+                "Hilario v Viceral",
+                "CONCILIATION",
+                DateTime.Parse("04/20/2021"),
+                new List<ReportNotice>() {
+                    new ReportNotice("Hearing Notice", new List<string>() { "HILARIO, Jude, Martin", }, "TO NOTIFY"),
+                    new ReportNotice("Summon Notice", new List<string>() { "VICERAL, Alex, Jun", }, "NOTIFIED"),
+                    new ReportNotice("Subpoena Notice", new List<string>() { "Orea, Milan, Mil", }, "TO NOTIFY")
+                }));
+
+            return View(reports);
         }
 
         [HttpGet]
