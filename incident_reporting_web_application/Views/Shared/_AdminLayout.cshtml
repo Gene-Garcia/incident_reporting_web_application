@@ -201,6 +201,10 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" id="datetime-container"></a>
+            </li>
+
         </ul>
     </div>
 </div>
@@ -223,6 +227,19 @@
 
 <script>
     window.onload = function () {
+        checkDeviceWidth();
+        startDate();
+    }
+
+    function startDate() {
+        var today = new Date();
+        let year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(today);
+        let month = new Intl.DateTimeFormat('en', { month: 'long' }).format(today);
+        let date = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(today);
+        document.getElementById('datetime-container').innerHTML = month + " " + date + ", " + year;
+    }
+
+    function checkDeviceWidth() {
         if (window.innerWidth <= 750) {
             document.getElementById("sidebar").style.width = "0";
             document.getElementById("main-content").style.marginLeft = "0";
