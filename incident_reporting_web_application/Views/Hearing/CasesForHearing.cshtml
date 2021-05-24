@@ -1,0 +1,48 @@
+﻿@model IEnumerable<incident_reporting_web_application.Models.Hearing.ForHearing>
+
+@{
+    ViewBag.Title = "Cases For Hearing";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container mt-5 mb-5 px-3 py-4 shadow rounded">
+
+    <h1 class="color-title"><span style="text-decoration:underline">@ViewBag.HearingType</span> Hearing</h1>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Case No.</td>
+                    <td>Case Title</td>
+                    <td>Complainant(s)</td>
+                    <td>Respondent(s)</td>
+                    <td>Witness</td>
+                    <td>Hearing Date</td>
+                    <td></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach(var record in Model)
+                {
+                    <tr>
+                        <td>@record.CaseNumber</td>
+                        <td>@record.CaseTitle</td>
+                        <td>@string.Join(" || ", record.Complainants)</td>
+                        <td>@string.Join(" || ", record.Complainants)</td>
+                        <td>@string.Join(" || ", record.Complainants)</td>
+                        <td>@record.HearingDate.ToString("MMM dd, yyyy, hh:mm tt")</td>
+                        <td>
+                            <a href="" class="btn btn-sm btn-primary">Go to Hearing</a>
+                            <a href="" class="btn btn-secondary btn-sm">Add Witness</a>
+                            <a href="" class="btn btn-danger btn-sm">File Court Action</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

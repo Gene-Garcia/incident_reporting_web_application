@@ -118,12 +118,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HearingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IncidentReportController.cs" />
     <Compile Include="Controllers\NoticeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Hearing\ForHearing.cs" />
     <Compile Include="Models\IncidentReportView\IncidentReportList.cs" />
     <Compile Include="Models\IncidentReportView\IncidentReportSummary.cs" />
     <Compile Include="Models\KPForms\ComplaintFormModel.cs" />
@@ -171,6 +173,7 @@
     <Content Include="Views\Notice\ScheduleSelection.cshtml" />
     <Content Include="Views\Notice\ManageCaseNotice.cshtml" />
     <Content Include="Views\Notice\DisplayNotices.cshtml" />
+    <Content Include="Views\Hearing\CasesForHearing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

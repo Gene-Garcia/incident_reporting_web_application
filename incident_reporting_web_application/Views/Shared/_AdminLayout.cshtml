@@ -8,12 +8,19 @@
         color: #4b778d;
     }
 
+    .color-italic{
+        font-style:italic;
+        
+    }
+
     .color-sub-heading {
         color: #004953;
     }
 
     .color-title {
         color: #325288;
+        font-size: 24px;
+        font-weight: 700;
     }
 
     .color-message {
@@ -172,13 +179,13 @@
                 <div class="collapse" id="hearing-collapse" style="background-color: #273746;">
                     <ul class="nav flex-column" id="sub-link">
                         <li class="nav-item">
-                            <a href="" class="nav-link" id="">Show All Hearing Mediation</a>
+                            <a href=@Url.Action("CasesForHearing", "Hearing", new { hearingType = "Mediation" }) class="nav-link" id="">Show All Hearing Mediation</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link" id="">Show All Hearing Conciliation</a>
+                            <a href=@Url.Action("CasesForHearing", "Hearing", new { hearingType = "Conciliation" }) class="nav-link" id="">Show All Hearing Conciliation</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link" id="">Show All Hearing Arbtiration</a>
+                            <a href=@Url.Action("CasesForHearing", "Hearing", new { hearingType = "Arbtiration" }) class="nav-link" id="">Show All Hearing Arbtiration</a>
                         </li>
                     </ul>
                 </div>
