@@ -7,7 +7,7 @@ namespace incident_reporting_web_application.Models.Hearing
 {
     public class ForHearing
     {
-        public ForHearing(string caseNumber, string title, List<string> complainants, List<string> respondents, List<string> witnesses, DateTime hearingDate)
+        public ForHearing(string caseNumber, string title, List<string> complainants, List<string> respondents, List<string> witnesses, DateTime hearingDate, bool needRequirement)
         {
             CaseNumber = caseNumber;
             CaseTitle = title;
@@ -15,6 +15,7 @@ namespace incident_reporting_web_application.Models.Hearing
             Respondents = respondents;
             Witnesses = witnesses;
             HearingDate = hearingDate;
+            NeedRequirement = needRequirement;
         }
 
         public string CaseNumber { get; set; }
@@ -23,6 +24,7 @@ namespace incident_reporting_web_application.Models.Hearing
         public List<string> Respondents { get; set; }
         public List<string> Witnesses { get; set; }
         public DateTime HearingDate { get; set; }
+        public bool NeedRequirement { get; set; }
 
     }
 }

@@ -6,11 +6,15 @@
 <style>
     .color-heading {
         color: #4b778d;
+        font-size: 24px;
+        font-weight: 700;
     }
 
-    .color-italic{
-        font-style:italic;
-        
+    .color-italic {
+        font-style: italic;
+        font-size: 17px;
+        font-weight: 500;
+        color: #004953;
     }
 
     .color-sub-heading {
@@ -19,8 +23,8 @@
 
     .color-title {
         color: #325288;
-        font-size: 24px;
         font-weight: 700;
+        font-size: 17px;
     }
 
     .color-message {
@@ -185,7 +189,7 @@
                             <a href=@Url.Action("CasesForHearing", "Hearing", new { hearingType = "Conciliation" }) class="nav-link" id="">Show All Hearing Conciliation</a>
                         </li>
                         <li class="nav-item">
-                            <a href=@Url.Action("CasesForHearing", "Hearing", new { hearingType = "Arbtiration" }) class="nav-link" id="">Show All Hearing Arbtiration</a>
+                            <a href=@Url.Action("CasesForHearing", "Hearing", new { hearingType = "Arbitration" }) class="nav-link" id="">Show All Hearing Arbtiration</a>
                         </li>
                     </ul>
                 </div>

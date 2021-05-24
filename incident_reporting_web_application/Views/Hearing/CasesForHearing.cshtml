@@ -5,13 +5,19 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<style>
+    .need-req{
+        font-weight: 600;
+        color:red;
+    }
+</style>
 
 <div class="container mt-5 mb-5 px-3 py-4 shadow rounded">
 
     <h1 class="color-title"><span style="text-decoration:underline">@ViewBag.HearingType</span> Hearing</h1>
 
-    <div class="table-responsive">
-        <table class="table table-striped">
+    <div class="table-responsive mt-3">
+        <table class="table table-striped align-middle">
             <thead>
                 <tr>
                     <td>Case No.</td>
@@ -20,6 +26,18 @@
                     <td>Respondent(s)</td>
                     <td>Witness</td>
                     <td>Hearing Date</td>
+
+                    @{ 
+                        if (ViewBag.HearingType == "Conciliation")
+                        {
+                            <td>Conciliation Requirement</td>
+                        }
+                        else if (ViewBag.HearingType == "Arbitration")
+                        {
+                            <td>Arbitration Requirement</td>
+                        }
+                    }
+
                     <td></td>
                 </tr>
             </thead>
@@ -34,10 +52,37 @@
                         <td>@string.Join(" || ", record.Complainants)</td>
                         <td>@string.Join(" || ", record.Complainants)</td>
                         <td>@record.HearingDate.ToString("MMM dd, yyyy, hh:mm tt")</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-primary">Go to Hearing</a>
-                            <a href="" class="btn btn-secondary btn-sm">Add Witness</a>
-                            <a href="" class="btn btn-danger btn-sm">File Court Action</a>
+                        
+                        @{ 
+                            if (ViewBag.HearingType == "Conciliation")
+                            {
+                                if (record.NeedRequirement){<td class="need-req">Needs Pangkat Constitution Notice</td> }
+                                else{ <td>-</td> }
+                            }
+                            else if (ViewBag.HearingType == "Arbitration")
+                            {
+                                if (record.NeedRequirement){<td class="need-req">Needs Arbitration Agreement</td> }
+                                else{ <td>-</td> }
+                            }
+                        }
+
+                        <td class="d-flex flex-column">
+                            @{
+                                if (record.NeedRequirement == true && ViewBag.HearingType == "Conciliation") 
+                                { 
+                                    <a href="/Notice/ManageCaseNotice" class="m-1 btn btn-sm btn-info">Create Notice</a> 
+                                } 
+                                else if (record.NeedRequirement == true && ViewBag.HearingType == "Arbitration")
+                                {
+                                    <a href="" class="m-1 btn btn-sm btn-info">Create Arbitration Agreement</a>
+                                }
+                                else 
+                                { 
+                                    <a href="/Hearing/RecordHearing" class="m-1 btn btn-sm btn-primary">Go to Hearing</a> 
+                                }
+                            }
+                            <a href="" class="m-1 btn btn-secondary btn-sm">Add Witness</a>
+                            <a href="" class="m-1 btn btn-outline-danger btn-sm">File Court Action</a>
                         </td>
                     </tr>
                 }

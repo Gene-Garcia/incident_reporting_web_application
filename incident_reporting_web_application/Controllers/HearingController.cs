@@ -27,7 +27,8 @@ namespace incident_reporting_web_application.Controllers
                 new List<string>() { "VICERAL, Jose, Mari" },
                 new List<string>() { "MARTIN, Neut, Neri", "LUO, Yuan, Ong" },
                 new List<string>() { "LUCAS, Luke, Argon" },
-                DateTime.Parse("05/25/2021")));
+                DateTime.Parse("05/25/2021"),
+                false));
 
             hearings.Add(new ForHearing(
                 "2021-05-1AX",
@@ -35,7 +36,8 @@ namespace incident_reporting_web_application.Controllers
                 new List<string>() { "VICERAL, Jose, Mari" },
                 new List<string>() { "MARTIN, Neut, Neri", "LUO, Yuan, Ong" },
                 new List<string>() { "LUCAS, Luke, Argon" },
-                DateTime.Parse("05/25/2021")));
+                DateTime.Parse("05/25/2021"),
+                true));
 
             hearings.Add(new ForHearing(
                 "2021-05-1AX",
@@ -43,7 +45,8 @@ namespace incident_reporting_web_application.Controllers
                 new List<string>() { "VICERAL, Jose, Mari" },
                 new List<string>() { "MARTIN, Neut, Neri", "LUO, Yuan, Ong" },
                 new List<string>() { "LUCAS, Luke, Argon" },
-                DateTime.Parse("05/25/2021")));
+                DateTime.Parse("05/25/2021"),
+                true));
 
             hearings.Add(new ForHearing(
                 "2021-05-1AX",
@@ -51,9 +54,26 @@ namespace incident_reporting_web_application.Controllers
                 new List<string>() { "VICERAL, Jose, Mari" },
                 new List<string>() { "MARTIN, Neut, Neri", "LUO, Yuan, Ong" },
                 new List<string>() { "LUCAS, Luke, Argon" },
-                DateTime.Parse("05/25/2021")));
+                DateTime.Parse("05/25/2021"),
+                false));
 
             return View(hearings);
+        }
+
+        public ActionResult RecordHearing(string caseno)
+        {
+            Hearing h = new Hearing(
+                "2021-05-B12",
+                "Velasquez v Cortez",
+                "ARBITRATION",
+                new List<string>(){ "VELASQUEZ, Martin, Joe", "VELASQUEZ, Cha, Atienza" },
+                new List<string>(){ "CORTEZ, Luca, Lou" },
+                new List<string>(){ "MARIA, Jeremy, Roxas" },
+                DateTime.Parse("05/30/2021"),
+                DateTime.Parse("5/25/2021"),
+                DateTime.Parse("5/26/2021"));
+
+            return View(h);
         }
     }
 }

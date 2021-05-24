@@ -1,0 +1,102 @@
+﻿@model incident_reporting_web_application.Models.Hearing.Hearing
+
+@{
+    ViewBag.Title = "Record Hearing";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    var agreementLabel = "";
+}
+
+<style>
+    .btn-group .btn{
+        font-weight: 600;
+    }
+</style>
+
+<div class="container mt-5 mb-5 px-3 py-4 shadow rounded">
+
+    <div class="row">
+        <div class="col-lg-6">
+            <h1 class="color-heading">@Model.HearingType Hearing Record For Case <span style="text-decoration: underline">#@Model.CaseNumber</span></h1>
+            <p class="color-italic">@Model.CaseTitle</p>
+        </div>
+
+        <div class="col-lg-6 text-lg-end">
+            <div class="btn-group" role="group" aria-label="">
+                @{
+                    if (Model.HearingType == "MEDIATION")
+                    {
+                        agreementLabel = "Amicable Settlement Agreement";
+                        <a href="#" class="btn btn-sm btn-primary"><span style="font-weight: 500">Proceed to</span> CONCILIATION</a>
+                        <a href="#" class="btn btn-sm btn-primary"><span style="font-weight: 500">Proceed to</span> ARBITRATION</a>
+                    }
+                    else if (Model.HearingType == "CONCILIATION")
+                    {
+                        agreementLabel = "Amicable Settlement Agreement";
+                        <a href="#" class="btn btn-sm btn-primary"><span style="font-weight: 500">Proceed to</span> ARBITRATION</a>
+                    }
+                    else if (Model.HearingType == "ARBITRATION")
+                    {
+                        agreementLabel = "Arbitration Award By the Punong Barangay";
+                    }
+                }
+                <a href="" class="btn btn-sm btn-danger">File Court Action</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-lg-3 g-4 mt-3">
+        <div class="col">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <p class="pb-0 mb-1 color-title">Complainant(s)</p>
+                    <ul class="list-group list-group-flush">
+                        @foreach (var complainant in Model.Complainants)
+                        {
+                            <li class="list-group-item">@complainant</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <p class="pb-0 mb-1 color-title">Respondent(s)</p>
+                    <ul class="list-group list-group-flush">
+                        @foreach (var respondent in Model.Respondents)
+                        {
+                            <li class="list-group-item">@respondent</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <p class="pb-0 mb-1 color-title">Witness</p>
+                    <ul class="list-group list-group-flush">
+                        @foreach (var witness in Model.Witness)
+                        {
+                            <li class="list-group-item">@witness</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <label for="agreement" class="form-label color-title">@agreementLabel</label>
+        <textarea class="form-control" id="agreement" rows="5"></textarea>
+    </div>
+
+    <div class="mt-3 text-md-end">
+        <a href="#" class="btn btn-primary">Create Settlement</a>
+    </div>
+
+</div>
