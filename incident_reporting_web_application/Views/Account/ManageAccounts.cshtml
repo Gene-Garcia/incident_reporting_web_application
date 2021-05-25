@@ -1,0 +1,50 @@
+﻿@model IEnumerable<incident_reporting_web_application.Models.Account.RegisteredAccount>
+
+@{
+    ViewBag.Title = "Accounts";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-5 mb-5 px-3 py-4 shadow rounded">
+    <h1 class="color-heading">Manage Registered Accounts</h1>
+
+    <div class="pt-3 table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Username</td>
+                    <td>Fullname</td>
+                    <td>Date Registered</td>
+                    <td>Registered by</td>
+                    <td>User Type</td>
+                    <td>Position</td>
+                    <td></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var record in Model)
+                {
+                    <tr>
+                        <td>@record.Username</td>
+                        <td>@record.FullName</td>
+                        <td>@record.RegisteredOn.ToString("MMM dd, yyyy")</td>
+                        <td>@record.RegisteredBy</td>
+                        <td>@record.UserType</td>
+                        <td>@record.PersonnelPosition</td>
+                        @{ 
+                            if (record.Disabled)
+                            {
+                                <td style="font-weight:600; font-size:17px" class="text-secondary">Account Disabled</td>
+                            }
+                            else
+                            {
+                                <td><button class="btn btn-sm btn-danger">Disable</button></td>
+                            }
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

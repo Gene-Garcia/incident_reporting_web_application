@@ -126,6 +126,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account\AccountInfo.cs" />
+    <Compile Include="Models\Account\RegisteredAccount.cs" />
     <Compile Include="Models\Hearing\ForHearing.cs" />
     <Compile Include="Models\Hearing\Hearing.cs" />
     <Compile Include="Models\IncidentReportView\IncidentReportList.cs" />
@@ -179,6 +180,7 @@
     <Content Include="Views\Hearing\RecordHearing.cshtml" />
     <Content Include="Views\Account\MyAccount.cshtml" />
     <Content Include="Views\Account\RegisterNewAccount.cshtml" />
+    <Content Include="Views\Account\ManageAccounts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
