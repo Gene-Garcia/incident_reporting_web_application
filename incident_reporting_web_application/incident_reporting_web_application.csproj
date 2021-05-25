@@ -125,6 +125,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Account\AccountInfo.cs" />
     <Compile Include="Models\Hearing\ForHearing.cs" />
     <Compile Include="Models\Hearing\Hearing.cs" />
     <Compile Include="Models\IncidentReportView\IncidentReportList.cs" />
@@ -176,6 +177,7 @@
     <Content Include="Views\Notice\DisplayNotices.cshtml" />
     <Content Include="Views\Hearing\CasesForHearing.cshtml" />
     <Content Include="Views\Hearing\RecordHearing.cshtml" />
+    <Content Include="Views\Account\MyAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
