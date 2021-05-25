@@ -178,6 +178,7 @@
     <Content Include="Views\Hearing\CasesForHearing.cshtml" />
     <Content Include="Views\Hearing\RecordHearing.cshtml" />
     <Content Include="Views\Account\MyAccount.cshtml" />
+    <Content Include="Views\Account\RegisterNewAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

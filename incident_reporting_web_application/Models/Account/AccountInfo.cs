@@ -18,12 +18,34 @@ namespace incident_reporting_web_application.Models.Account
             PersonnelPosition = personnelPosition;
         }
 
+        [Required]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Middle Name")]
         public string MiddleName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "Username")]
         public string Username { get; set; }
+
+        [Required]
+        [Display(Name = "User Type")]
         public string UserType { get; set; }
+
+        [Required]
+        [Display(Name = "Personnel Position")]
         public string PersonnelPosition { get; set; }
+
+        [Required]
+        [Display(Name = "Password")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
 
         [Required]
         [Display(Name = "Old Password")]

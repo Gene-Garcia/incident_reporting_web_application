@@ -29,5 +29,10 @@ namespace incident_reporting_web_application.Controllers
 
             return View(acc);
         }
+
+        public ActionResult RegisterNewAccount()
+        {
+            return View();
+        }
     }
 }
