@@ -118,6 +118,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuditTrailController.cs" />
     <Compile Include="Controllers\HearingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IncidentReportController.cs" />
@@ -127,6 +128,7 @@
     </Compile>
     <Compile Include="Models\Account\AccountInfo.cs" />
     <Compile Include="Models\Account\RegisteredAccount.cs" />
+    <Compile Include="Models\AuditTrail\AuditTrail.cs" />
     <Compile Include="Models\Hearing\ForHearing.cs" />
     <Compile Include="Models\Hearing\Hearing.cs" />
     <Compile Include="Models\IncidentReportView\IncidentReportList.cs" />
@@ -181,6 +183,7 @@
     <Content Include="Views\Account\MyAccount.cshtml" />
     <Content Include="Views\Account\RegisterNewAccount.cshtml" />
     <Content Include="Views\Account\ManageAccounts.cshtml" />
+    <Content Include="Views\AuditTrail\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

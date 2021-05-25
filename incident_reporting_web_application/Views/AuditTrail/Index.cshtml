@@ -1,0 +1,44 @@
+﻿@model IEnumerable<incident_reporting_web_application.Models.AuditTrail.AuditTrail>
+
+@{
+    ViewBag.Title = "Audit Trails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-5 mb-5 px-3 py-4 shadow rounded">
+
+    <h1 class="color-heading">Audit Trail</h1>
+
+    <div class="col-4 pt-2">
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+            <option selected>All Trails</option>
+            <option>One</option>
+        </select>
+    </div>
+
+    <div class="table-responsive pt-4">
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr class="color-title">
+                    <td>Date Recorded</td>
+                    <td>Description</td>
+                    <td>Username</td>
+                    <td>Module</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.DateRecorded.ToString("MMM dd, yyyy, hh:mm tt")</td>
+                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                        <td style="font-weight:600">@Html.DisplayFor(modelItem => item.Username)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Module)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

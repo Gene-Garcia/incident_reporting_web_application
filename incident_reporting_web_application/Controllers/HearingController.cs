@@ -65,7 +65,7 @@ namespace incident_reporting_web_application.Controllers
             Hearing h = new Hearing(
                 "2021-05-B12",
                 "Velasquez v Cortez",
-                "ARBITRATION",
+                "MEDIATION",
                 new List<string>(){ "VELASQUEZ, Martin, Joe", "VELASQUEZ, Cha, Atienza" },
                 new List<string>(){ "CORTEZ, Luca, Lou" },
                 new List<string>(){ "MARIA, Jeremy, Roxas" },

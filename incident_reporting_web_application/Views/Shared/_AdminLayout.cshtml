@@ -218,7 +218,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="" class="nav-link ">
+                <a href="/AuditTrail/Index" class="nav-link ">
                     Audit Trail
                 </a>
             </li>
@@ -260,7 +260,7 @@
         let year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(today);
         let month = new Intl.DateTimeFormat('en', { month: 'long' }).format(today);
         let date = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(today);
-        document.getElementById('datetime-container').innerHTML = month + " " + date + ", " + year;
+        document.getElementById('datetime-container').innerHTML = "Today is " + month + " " + date + ", " + year;
     }
 
     function checkDeviceWidth() {
