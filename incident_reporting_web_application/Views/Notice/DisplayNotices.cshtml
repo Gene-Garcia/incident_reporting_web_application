@@ -6,14 +6,8 @@
 }
 
 <style>
-    .color-title{
-        font-size: 19px;
-        font-weight: 600
-    }
-
-    .color-sub-heading{
-        font-weight: 500;
-        font-style:italic;
+    .color-heading{
+        font-size: 20px;
     }
 
     .hearing-type{
@@ -54,8 +48,8 @@
         <div class="card border-0 mb-4 shadow-sm" style="background-color: #eeeeee">
             <div class="row px-3 pt-3">
                 <div class="col-md-6 pb-0">
-                    <p class="color-title pb-0">Incident Case <span style="text-decoration:underline">#@report.CaseNo</span></p>
-                    <p class="color-sub-heading pb-0">@report.CaseTitle</p>
+                    <p class="color-heading pb-0">Case <span style="text-decoration:underline">#@report.CaseNo</span></p>
+                    <p class="color-italic pb-0">@report.CaseTitle</p>
                 </div>
                 <div class="col-md-6 text-md-end pb-0">
                     <p class="hearing-type pb-0">@report.HearingType.Substring(0, 1)@report.HearingType.Substring(1).ToLower() Hearing</p>
@@ -66,7 +60,7 @@
                 <div class="table-responsive p-0">
                     <table class="table table-striped p-0">
                         <thead>
-                            <tr>
+                            <tr class="color-title">
                                 <td>Notice Type</td>
                                 <td>Resident Name(s)</td>
                                 <td>Status</td>

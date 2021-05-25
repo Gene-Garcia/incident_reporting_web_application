@@ -9,16 +9,18 @@
 
 <div class="container mt-5 mb-5 p-3 shadow rounded">
 
-    <div class="table-responsive">
+    <h1 class="color-heading">Incident Report Cases</h1>
+    <p class="color-italic">Incident cases with incomplete notice</p>
+
+    <div class="table-responsive pt-3">
         <table class="table table-striped">
             <thead>
-                <tr>
+                <tr class="color-title">
                     <td>Case No.</td>
                     <td>Case Title</td>
                     <td>Date Reported</td>
                     <td>Processed By</td>
                     <td>Date of Hearing</td>
-                    <td>Notices created</td>
                     <td></td>
                 </tr>
             </thead>
@@ -44,10 +46,9 @@
                     }
                     <td>@record.CaseNo</td>
                     <td>@record.CaseTitle</td>
-                    <td>@record.DateReported</td>
+                    <td>@record.DateReported.ToString("MMM dd, yyyy")</td>
                     <td>@record.ProcessedBy</td>
                     <td>@display</td>
-                    <td></td>
                     <td>
                         @{
                             if (hasSchedule)

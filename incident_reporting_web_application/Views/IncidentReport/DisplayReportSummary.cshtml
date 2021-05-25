@@ -6,19 +6,6 @@
 }
 
 <style>
-    .color-heading{
-        font-size: 23px;
-        font-weight:700;
-    }
-
-    .color-sub-heading{
-        font-size: 16px;
-    }
-
-    .color-title{
-        font-weight: 600;
-        font-size: 17.3px;
-    }
 
     .date{
         font-weight: 600;
@@ -90,9 +77,7 @@
         if (Model.HearingStatus.ToUpper() == "MEDIATION") { btnClass = "btn-info"; }
         else if (Model.HearingStatus.ToUpper() == "CONCILIATION") { btnClass = "btn-warning"; }
         else if (Model.HearingStatus.ToUpper() == "ARBITRATION") { btnClass = "btn-danger"; }
-    }
 
-    @{
         string displayTitle = "col-3 col-xl-2";
         string content = "col-9 col-xl-10";
     }

@@ -6,27 +6,20 @@
 }
 
 <style>
-    #page-content .highlight {
-        background-color: #f9f9f9
-    }
-
-    #page-content .control-label {
-        font-weight: 600;
-        font-size: 18px;
-    }
-
     #page-content a {
         color: #5b6d5b;
         text-decoration: none;
     }
 
-        #page-content a:hover {
-            color: black;
-            text-decoration: underline;
-        }
+    #page-content a:hover {
+        color: black;
+        text-decoration: underline;
+    }
 </style>
 
 <div class="container mt-5 mb-5 px-3 py-4 shadow rounded" id="page-content">
+    <h1 class="color-heading pb-4">Create Incident Report Record</h1>
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -81,7 +74,7 @@
                 </div>
             </div>
 
-            <div class="form-group mt-5">
+            <div class="form-group pt-4">
                 @Html.LabelFor(model => model.ViolationDesc, htmlAttributes: new { @class = "control-label col-md-12 color-title" })
                 <div class="col-md-12">
                     @Html.TextAreaFor(model => model.ViolationDesc, new { @class = "form-control", rows = "3", cols = "5" })
@@ -89,7 +82,7 @@
                 </div>
             </div>
 
-            <div class="form-group mt-5">
+            <div class="form-group pt-4">
 
                 @Html.LabelFor(model => model.ReliefGrant, htmlAttributes: new { @class = "control-label col-md-12 color-title" })
                 <div class="col-md-12">
@@ -99,7 +92,7 @@
             </div>
 
             @*respondent*@
-            <div class="rounded mt-5" id="dynamic-respondent">
+            <div class="rounded pt-4" id="dynamic-respondent">
                 <div class="row g-0">
                     <div class="col-lg-6 ">
                         <p class="color-title d-block my-auto" style="font-size:18px; font-weight: 600">Respondent(s)</p>
@@ -147,7 +140,7 @@
                 </div>
             </div>
 
-            <div class="form-group mt-5">
+            <div class="form-group pt-4">
                 @*@Html.LabelFor(model => model.DateReported, htmlAttributes: new { @class = "control-label col-md-12" })*@
                 <label class="color-title control-label col-md-12">Date of Incident</label>
                 <div class="col-md-12">
@@ -157,7 +150,7 @@
                 </div>
             </div>
 
-            <div class="form-group mt-5">
+            <div class="form-group pt-4">
                 <div class="col-md-12">
                     <input type="submit" value="Create Incident Report" class="btn btn-primary" />
                     <a href="#" class="btn btn-light" style="text-decoration:none" onclick="location.reload()   ">Clear</a>
