@@ -75,5 +75,18 @@ namespace incident_reporting_web_application.Controllers
 
             return View(h);
         }
+
+        public ActionResult FileCourtAction()
+        {
+            CourtAction courtAction = new CourtAction(
+                "2021-05-B12",
+                "Velasquez v Cortez",
+                new List<string>() { "VELASQUEZ, Martin, Joe", "VELASQUEZ, Cha, Atienza" },
+                new List<string>() { "CORTEZ, Luca, Lou" },
+                new List<string>() { "MARIA, Jeremy, Roxas" },
+                DateTime.Parse("05/30/2021"),
+                "MEDIATION");
+            return View(courtAction);
+        }
     }
 }

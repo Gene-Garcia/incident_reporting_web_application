@@ -1,0 +1,65 @@
+﻿@model incident_reporting_web_application.Models.Hearing.CourtAction
+
+@{
+    ViewBag.Title = "Court Action";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-5 mb-5 px-3 py-4 shadow rounded">
+
+    <h1 class="color-heading">File Court Action</h1>
+    <p class="color-sub-heading">Case #@Model.CaseNumber, <span class="color-italic">@Model.CaseTitle</span></p>
+    <p class="" style="font-size: 17px;"><span style="font-weight:600">Latest Hearing:</span> <span>@Model.LastHearingType</span> on @Model.HearingDate.ToString("MMM dd, yyyy, hh:mm tt")</p>
+
+    <p class="color-title pt-3">This is to certify that:</p>
+    <ul class="list-group list-group-flush list-group-numbered">
+        <li class="list-group-item">
+            There has been a personal confrontation between the parties before the Punong Barangay by mediation failed;
+        </li>
+        <li class="list-group-item">
+            The Pangkat ng Tagapagsundo was constituted but the personal confrontation before the Pangkat likewise did not result into a settlement; and
+        </li>
+        <li class="list-group-item">
+            Therefore, the corresponding complaint for the dispute may now be filed in court/government office.
+        </li>
+    </ul>
+
+    <div class="form-check form-switch pt-4">
+        <input class="form-check-input" type="checkbox" id="signSec" onclick="sign(this, 'chkLabelSec')">
+        <label class="form-check-label" for="signPunongBrgy" id="chkLabelSec">Signed by the Barangay Secretary</label>
+    </div>
+
+    <div class="form-check form-switch pt-4">
+        <input class="form-check-input" type="checkbox" id="signPunongBrgy" onclick="sign(this, 'chkLabelPB')">
+        <label class="form-check-label" for="signPunongBrgy" id="chkLabelPB">Signed by the Punong Barangay</label>
+    </div>
+
+    <div class="pt-4">
+        <button class="btn btn-danger" id="fileBtn" disabled>File Court Action</button>
+    </div>
+
+</div>
+
+@section scripts{
+    <script>
+
+        function sign(checkbox, labelid) {
+            // If the checkbox is checked, display the output text
+            if (checkbox.checked == true) {
+                document.getElementById(labelid).classList.add("color-title");
+                enableFileButton()
+            } else {
+                document.getElementById(labelid).classList.remove("color-title");
+                enableFileButton()
+            }
+        }
+
+        function enableFileButton() {
+            if (document.getElementById("signSec").checked && document.getElementById("signPunongBrgy").checked)
+                document.getElementById("fileBtn").disabled = false;
+            else
+                document.getElementById("fileBtn").disabled = true;
+        }
+
+
+    </script>}
