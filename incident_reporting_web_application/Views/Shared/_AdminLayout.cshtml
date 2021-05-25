@@ -114,7 +114,16 @@
 
     .x-nav-title {
         font-size: 19px;
-        color: #d8e3ec
+        color: #dbe5f0;
+        font-weight: 600;
+    }
+
+    .sidebar-title {
+        font-size: 17px;
+        color: #c8d2dd;
+        font-weight: 600;
+        padding-bottom: 0;
+        margin-bottom: 10px;
     }
 </style>
 
@@ -122,8 +131,11 @@
 <div class="sidebar" id="sidebar">
 
     <!-- Image Top -->
-    <div class="mb-3">
-        <p class="text-center px-3 py-4" style="font-size:20px; color:#e9f5ff; font-weight:600">Incident Reporting Application</p>
+    <div class="mb-1 text-center px-2 mt-4">
+        <div>
+            <img src="~/Content/Images/Sinisian.png" class="w-75"/>
+        </div>
+        @*<p class=" sidebar-title">Province of Batangas, Municipality of Calaca, Barangay Sinisian</p>*@
     </div>
 
     <div class="nav-links">
@@ -131,7 +143,7 @@
         <ul class="nav flex-column" id="main-account-link">
 
             <li class="nav-item">
-                <a href="" class="nav-link ">
+                <a href="/Home/Index" class="nav-link ">
                     Home
                 </a>
             </li>
