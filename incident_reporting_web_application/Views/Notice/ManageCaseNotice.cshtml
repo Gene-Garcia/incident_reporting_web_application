@@ -72,21 +72,39 @@
                     <td>Summon Notice</td>
                     <td>PINEDA, Mark, Perez</td>
                     <td class="">-</td>
-                    <td><button class="btn btn-primary btn-sm">Create Summon Record</button></td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <input type="checkbox" class="btn-check" id="allowSign" autocomplete="off" onclick="toggleCheck(this, 'summonBtn')">
+                            <label class="btn btn-outline-dark btn-sm" for="allowSign">PB Signature</label>
+
+                            <button type="button" class="btn btn-primary btn-sm" id="summonBtn" disabled>Create Summon Record</button>
+                        </div>
+                    </td>
                 </tr>
 
                 <tr>
                     <td>Pangkat Notice</td>
                     <td>-</td>
                     <td class="">-</td>
-                    <td><button class="btn btn-primary btn-sm">Create Pangkat Constitution Record</button></td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <input type="checkbox" class="btn-check" id="allowSign1" autocomplete="off" onclick="toggleCheck(this, 'pangkatBtn')">
+                            <label class="btn btn-outline-dark btn-sm" for="allowSign1">PB Signature</label>
+
+                            <button type="button" class="btn btn-primary btn-sm" id="pangkatBtn" disabled>Create Pangkat Constitution Record</button>
+                        </div>
+                    </td>
                 </tr>
 
                 <tr>
                     <td>Subpoena Notice</td>
                     <td>-</td>
                     <td class="">-</td>
-                    <td><button class="btn btn-secondary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#witness-collapse" aria-expanded="false" aria-controls="witness-collapse">Create Witness Record</button></td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#witness-collapse" aria-expanded="false" aria-controls="witness-collapse">
+                            Create Witness Record ▼
+                        </button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -142,7 +160,12 @@
 
                 <div class="row mt-3">
                     <div class="col-12 text-end">
-                        <button class="btn btn-primary btn-sm">Create Witness Record</button>
+                        <div class="btn-group" role="group">
+                            <input type="checkbox" class="btn-check" id="allowSign2" autocomplete="off" onclick="toggleCheck(this, 'witnessBtn')">
+                            <label class="btn btn-outline-dark btn-sm" for="allowSign2">PB Signature</label>
+
+                            <button class="btn btn-primary btn-sm" id="witnessBtn" disabled>Create Witness Record</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -153,6 +176,15 @@
 
 @section scripts{
 <script>
+
+    function toggleCheck(checkbox, buttonId) {
+        if (checkbox.checked) {
+            document.getElementById(buttonId).disabled = false;
+        }
+        else {
+            document.getElementById(buttonId).disabled = true;
+        }
+    }
 
     function AddWitness() {
         var container = $("#name-container");

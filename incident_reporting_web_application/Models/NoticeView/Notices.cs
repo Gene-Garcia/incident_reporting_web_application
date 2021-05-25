@@ -33,9 +33,17 @@ namespace incident_reporting_web_application.Models.NoticeView
             ResidentNames = residentNames;
             NoticeStatus = noticeStatus;
         }
+        public ReportNotice(string noticeType, List<string> residentNames, string noticeStatus, DateTime dateNotified)
+        {
+            NoticeType = noticeType;
+            ResidentNames = residentNames;
+            NoticeStatus = noticeStatus;
+            DateNotified = dateNotified;
+        }
 
         public string NoticeType { get; set; }
         public List<string> ResidentNames { get; set; }
         public string NoticeStatus { get; set; }
+        public DateTime DateNotified { get; set; }
     }
 }

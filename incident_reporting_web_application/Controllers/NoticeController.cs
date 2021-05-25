@@ -74,7 +74,7 @@ namespace incident_reporting_web_application.Controllers
                 "MEDIATION",
                 DateTime.Parse("04/16/2021"),
                 new List<ReportNotice>() {
-                    new ReportNotice("Hearing Notice", new List<string>() { "PEREZ, Nico, Martin" }, "NOTIFIED"),
+                    new ReportNotice("Hearing Notice", new List<string>() { "PEREZ, Nico, Martin" }, "NOTIFIED", DateTime.Parse("04/14/2021")),
                     new ReportNotice("Summon Notice", new List<string>() { "PADILLA, Annie, Jean", "DIMAILIG, Birth, Castro" }, "TO NOTIFY")
                 }));
 
@@ -86,7 +86,7 @@ namespace incident_reporting_web_application.Controllers
                 new List<ReportNotice>() {
                     new ReportNotice("Hearing Notice", new List<string>() { "CORTEZ, Mik, Pilar" }, "TO NOTIFY"),
                     new ReportNotice("Summon Notice", new List<string>() { "ATIENZA, Joi, Marin", "BING, Arch, Monti" }, "TO NOTIFY"),
-                    new ReportNotice("Subpoena Notice", new List<string>() { "GALVEZ, Leo, Coring", "MARIA, Vhong, Viceral" }, "NOTIFIED")
+                    new ReportNotice("Subpoena Notice", new List<string>() { "GALVEZ, Leo, Coring", "MARIA, Vhong, Viceral" }, "NOTIFIED", DateTime.Parse("04/16/2021"))
                 }));
 
             reports.Add(new IncidentReport(
@@ -96,7 +96,7 @@ namespace incident_reporting_web_application.Controllers
                 DateTime.Parse("04/20/2021"),
                 new List<ReportNotice>() {
                     new ReportNotice("Hearing Notice", new List<string>() { "HILARIO, Jude, Martin", }, "TO NOTIFY"),
-                    new ReportNotice("Summon Notice", new List<string>() { "VICERAL, Alex, Jun", }, "NOTIFIED"),
+                    new ReportNotice("Summon Notice", new List<string>() { "VICERAL, Alex, Jun", }, "NOTIFIED", DateTime.Parse("04/18/2021")),
                     new ReportNotice("Subpoena Notice", new List<string>() { "Orea, Milan, Mil", }, "TO NOTIFY")
                 }));
 

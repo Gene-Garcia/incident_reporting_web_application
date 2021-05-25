@@ -64,6 +64,7 @@
                                 <td>Notice Type</td>
                                 <td>Resident Name(s)</td>
                                 <td>Status</td>
+                                <td>Date Notified</td>
                                 <td>Action</td>
                             </tr>
                         </thead>
@@ -83,16 +84,16 @@
                                     <td>@notice.NoticeType</td>
                                     <td>@string.Join(" || ", notice.ResidentNames)</td>
                                     <td class="@noticeStatusColor">@notice.NoticeStatus</td>
-                                    <td>
-                                        @if (needsNotification)
-                                        {
-                                            <button class="btn btn-outline-success btn-sm">Set to Notified</button>
-                                        }
-                                        else
-                                        {
-                                            <span>-</span>
-                                        }
-                                    </td>
+                                    @if (needsNotification)
+                                    {
+                                        <td>-</td>
+                                        <td><button class="btn btn-outline-success btn-sm">Set to Notified</button></td>
+                                    }
+                                    else
+                                    {
+                                        <td>@notice.DateNotified.ToString("MMM dd, yyyy, hh:mm tt")</td>
+                                        <td>-</td>
+                                    }
                                 </tr>
                             }
                         </tbody>

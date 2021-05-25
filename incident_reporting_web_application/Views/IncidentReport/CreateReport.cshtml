@@ -15,6 +15,7 @@
         color: black;
         text-decoration: underline;
     }
+
 </style>
 
 <div class="container mt-5 mb-5 px-3 py-4 shadow rounded" id="page-content">
@@ -151,9 +152,21 @@
             </div>
 
             <div class="form-group pt-4">
+                <div class="col-md-6">
+                    <label for="complainantSignature" class="form-label color-title">Complainant(s) Digital Signature</label>
+                    <input class="form-control mb-1" type="file" id="complainantSignature" multiple required>
+                    <a href="" target="_blank" class="mt-5 text-primary" style="text-decoration:underline">No digital signature?</a>
+                </div>
+            </div>
+
+            <div class="form-check form-switch pt-4">
+                <input class="form-check-input" type="checkbox" id="signPunongBrgy" onclick="signPB(this)">
+                <label class="form-check-label" for="signPunongBrgy" id="chkLabel">Signed by the Punong Barangay</label>
+            </div>
+
+            <div class="form-group pt-4">
                 <div class="col-md-12">
-                    <input type="submit" value="Create Incident Report" class="btn btn-primary" />
-                    <a href="#" class="btn btn-light" style="text-decoration:none" onclick="location.reload()   ">Clear</a>
+                    <input type="submit" value="Create Incident Report" class="btn btn-primary" id="createReport" disabled/>
                 </div>
             </div>
         </div>
@@ -163,6 +176,17 @@
     @Scripts.Render("~/bundles/jqueryval")
 
     <script>
+        function signPB(checkbox) {
+            // If the checkbox is checked, display the output text
+            if (checkbox.checked == true) {
+                document.getElementById("chkLabel").classList.add("color-title");
+                document.getElementById("createReport").disabled = false;
+            } else {
+                document.getElementById("chkLabel").classList.remove("color-title");
+                document.getElementById("createReport").disabled = true;
+            }
+        }
+
         function AddComplainant() {
             var container = $("#name-container");
             $(container).append
