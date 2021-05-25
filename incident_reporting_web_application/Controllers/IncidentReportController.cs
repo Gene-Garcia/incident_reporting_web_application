@@ -21,6 +21,57 @@ namespace incident_reporting_web_application.Controllers
         [HttpGet]
         public ActionResult CreateReport()
         {
+            #region-kp-cases
+            string[] kpCases =
+            {
+                "Article No. 154 Unlawful use of means of publication and unlawful utterances.",
+                "Article No. 155 Alarms and scandals.",
+                "Article No. 175 Using false certificates.",
+                "Article No. 178 Using fictitious names and concealing true names.",
+                "Article No. 179 Illegal use of uniforms and insignias.",
+                "Article No. 252 Physical injuries inflicted in a tumultuous affray.",
+                "Article No. 253 Giving assistance to consummated suicide.",
+                "Article No. 260 Responsibility of participants in a duel if only physical injuries are inflicted or no physical injuries have been inflicted.",
+                "Article No. 265 Less serious physical injuries.",
+                "Article No. 266 Slight physical injuries and maltreatment.",
+                "Article No. 269 Unlawful arrest.",
+                "Article No. 271 Inducing a minor to abandon his/ her home.",
+                "Article No. 275 Abandonment of a person in danger and abandonment of one’s own victim.",
+                "Article No. 276 Abandoning a minor(A child under seven[7] years old).",
+                "Article No. 277 Abandonment of a minor by persons entrusted with his / her custody; indifference of parents.",
+                "Article No. 280 Qualified trespass to dwelling(Without the use of violence and intimidation).",
+                "Article No. 281 Other forms of trespass.",
+                "Article No. 283 Light threats.",
+                "Article No. 285 Other light threats.",
+                "Article No. 286 Grave coercion.",
+                "Article No. 287 Light coercion.",
+                "Article No. 288 Other similar coercions(Compulsory purchase of merchandise and payment of wages by means of tokens).",
+                "Article No. 289 Formation, maintenance, and prohibition of combination of capital or labor through violence or threats.",
+                "Article No. 290 Discovering secrets through seizure and correspondence.",
+                "Article No. 291 Revealing secrets with abuse of authority.",
+                "Article No. 309 Theft(If the value of the property stolen does not exceed P50.00).",
+                "Article No. 310 Qualified Theft(If the amount does not exceed P500).",
+                "Article No. 312 Occupation of real property or usurpation of real rights in property.",
+                "Article No. 313 Altering boundaries or landmarks.",
+                "Article No. 315 Swindling or estafa(If the amount does not exceed P200.00).",
+                "Article No. 316 Other forms of swindling.",
+                "Article No. 317 Swindling a minor.",
+                "Article No. 318 Other deceits.",
+                "Article No. 319 Removal, sale, or pledge of mortgaged property.",
+                "Article No. 328 Special cases of malicious mischief(If the value of the damaged property does not exceed P1, 000.00).",
+                "Article No. 329 Other mischiefs(If the value of the damaged property does not exceed P1,000.00).",
+                "Article No. 338 Simple seduction.",
+                "Article No. 339 Acts of lasciviousness with the consent of the offended party.",
+                "Article No. 356 Threating to publish and offer to prevent such publication for compensation.",
+                "Article No. 357 Prohibiting publication of acts referred to in the course of official proceedings.",
+                "Article No. 363 Incriminating innocent persons.",
+                "Article No. 364 Intriguing against honor.",
+                "BP 22 Issuing checks without sufficient funds.",
+                "PD 1612 Fencing of stolen properties if the property involved is not more than P50.00."
+            };
+            #endregion
+            ViewBag.KPCases = new List<string>(kpCases);
+
             return View();
         }
 
