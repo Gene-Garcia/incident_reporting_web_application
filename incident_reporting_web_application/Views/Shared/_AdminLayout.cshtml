@@ -104,6 +104,17 @@
     #topNavBar .nav-item:hover{
         opacity: 100%;
     }
+
+    #account-name{
+        font-weight: 600;
+        opacity: 70%;
+        color:black;
+        text-decoration: none;
+    }
+
+    #account-name:hover{
+        opacity: 100%;
+    }
 </style>
 
 
@@ -218,14 +229,6 @@
                 </a>
             </li>
 
-            <li style="background-color: #8596a7; padding-top: 1px; padding-bottom: 1px;"></li>
-
-            <li class="nav-item">
-                <a href="/Account/Login" class="nav-link ">
-                    Logout
-                </a>
-            </li>
-
         </ul>
     </div>
 </div>
@@ -250,8 +253,14 @@
                     </li>
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <div class="btn-group dropstart">
+                        <a class=" dropdown-toggle" id="account-name" data-bs-toggle="dropdown" aria-expanded="false">
+                            john_v_dimailig
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/Account/Login">Logout</a></li>
+                        </ul>
+                    </div>
                 </form>
             </div>
         </div>
