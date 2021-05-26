@@ -4,38 +4,7 @@
 }
 
 <style>
-    .color-heading {
-        color: #4b778d;
-        font-size: 25px;
-        font-weight: 700;
-    }
-
-    .color-italic {
-        font-style: italic;
-        font-size: 16px;
-        font-weight: 500;
-        color: #004953;
-    }
-
-    .color-sub-heading {
-        color: #004953;
-    }
-
-    .color-title {
-        color: #325288;
-        font-weight: 700;
-        font-size: 17px;
-    }
-
-    .color-message {
-        color: black;
-    }
-
-    .color-misc {
-        color: #d1e231;
-    }
-
-
+    
     .sidebar {
         height: 100%;
         width: 220px; /*change to 0px*/
@@ -143,6 +112,10 @@
         <ul class="nav flex-column" id="main-account-link">
 
             <li class="nav-item">
+                <a class="nav-link" id="datetime-container"></a>
+            </li>
+
+            <li class="nav-item">
                 <a href="/Home/Index" class="nav-link ">
                     Home
                 </a>
@@ -238,7 +211,9 @@
             <li style="background-color: #8596a7; padding-top: 1px; padding-bottom: 1px;"></li>
 
             <li class="nav-item">
-                <a class="nav-link" id="datetime-container"></a>
+                <a href="/Account/Login" class="nav-link ">
+                    Logout
+                </a>
             </li>
 
         </ul>

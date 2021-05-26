@@ -9,11 +9,9 @@ namespace incident_reporting_web_application.Models
 {
     public class LoginModel
     {
-        [Required]
         [DisplayName("Username")]
         public string Username { get; set; }
 
-        [Required]
         [DataType(DataType.Password)]
         [DisplayName("Password")]
         public string Password { get; set; }
