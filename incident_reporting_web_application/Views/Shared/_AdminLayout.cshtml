@@ -24,15 +24,15 @@
     .openbtn {
         font-size: 20px;
         cursor: pointer;
-        background-color: white;
         color: black;
+        background-color:#fff;
         padding: 10px 15px;
         border: none;
     }
 
-        .openbtn:hover {
-            background-color: #faf3f3;
-        }
+    .openbtn:hover {
+        background-color: #f4f4f4;
+    }
 
     #main-content {
         transition: margin-left .5s;
@@ -46,7 +46,7 @@
     }
 
     #main-account-link {
-        font-size: 18px;
+        font-size: 17px;
     }
 
     #sub-link {
@@ -94,6 +94,16 @@
         padding-bottom: 0;
         margin-bottom: 10px;
     }
+
+    #topNavBar .nav-item{
+        font-weight: 600;
+        opacity: 85%;
+        color:black;
+    }
+
+    #topNavBar .nav-item:hover{
+        opacity: 100%;
+    }
 </style>
 
 
@@ -134,11 +144,11 @@
                             <a href="/IncidentReport/CreateReport" class="nav-link" id="">Create Incident Report</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/IncidentReport/DisplayIncidentReports" class="nav-link" id="">Display Incident Reports</a>
+                            <a href="/IncidentReport/DisplayOngoingIncidentReports" class="nav-link" id="">Display Ongoing Cases</a>
                         </li>
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a href="/IncidentReport/DisplayReportSummary" class="nav-link" id="">Search for an Incident Report</a>
-                        </li>
+                        </li>*@
                     </ul>
                 </div>
             </li>
@@ -221,12 +231,35 @@
 </div>
 
 <div id="topNavBar" class="">
-    <nav class="navbar navbar-expand-lg bg-light navbar-dark shadow ">
-        <div class="d-flex flex-row">
+    <nav class="navbar navbar-expand-md navbar-light bg-light shadow p-0 ">
+        <div class="container-fluid">
+
+            <button class="openbtn navbar-brand" onclick="toggleNav()">☰</button>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#x-nav" aria-controls="x-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="x-nav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/IncidentReport/SettledIncidentReports">Settled Cases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/IncidentReport/DisplayReportSummary">Search Case</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+        @*<div class="d-flex flex-row">
             <button class="openbtn" onclick="toggleNav()">☰</button>
 
             <span class="x-nav-title m-auto">Incident Reporting Application</span>
-        </div>
+        </div>*@
     </nav>
 </div>
 

@@ -76,26 +76,99 @@ namespace incident_reporting_web_application.Controllers
         }
 
         [HttpGet]
-        public ActionResult DisplayIncidentReports()
+        public ActionResult DisplayOngoingIncidentReports() // Ongoing
         {
             //Dummy data
             List<IncidentReportList> report = new List<IncidentReportList>();
 
-            report.Add(
-                new IncidentReportList("2020-08-3C0", "Atienza v Dimailig", "Lorem ipsum", "Lorem ipsum", DateTime.Parse("08/15/2020"), "john_dimailig", DateTime.Parse("08/17/2020"), "CONCILIATION"));
+            report.Add(new IncidentReportList(
+                "2020-05", 
+                "Atienza v Dimailig", 
+                "Lorem ipsum", 
+                "Lorem ipsum", 
+                DateTime.Parse("08/15/2020"), 
+                "john_dimailig", 
+                DateTime.Parse("08/17/2020"), 
+                "CONCILIATION"));
 
-            report.Add(
-                new IncidentReportList("2019-02-1A1", "Lopez v Velasquez", "Lorem ipsum", "Lorem ipsum", DateTime.Parse("02/02/2019"), "john_dimailig", DateTime.Parse("02/05/2019"), "N/A"));
-            report.Add(
-                new IncidentReportList("2019-02-1D9", "Didal v Dela Cruz", "Lorem ipsum", "Lorem ipsum", DateTime.Parse("02/27/2019"), "john_dimailig", DateTime.Parse("02/28/2019"), "MEDIATION"));
+            report.Add(new IncidentReportList(
+                "2019-06", 
+                "Lopez v Velasquez", 
+                "Lorem ipsum", "" +
+                "Lorem ipsum", 
+                DateTime.Parse("02/02/2019"), 
+                "john_dimailig", 
+                DateTime.Parse("02/05/2019"), 
+                "N/A"));
+
+            report.Add(new IncidentReportList(
+                "2019-07", 
+                "Didal v Dela Cruz", 
+                "Lorem ipsum", 
+                "Lorem ipsum", 
+                DateTime.Parse("02/27/2019"), 
+                "john_dimailig", 
+                DateTime.Parse("02/28/2019"), 
+                "MEDIATION"));
 
             return View(report);
         }
 
+        //in x-nav or horizontal
+        public ActionResult SettledIncidentReports() 
+        {
+            List<SettledReport> reports = new List<SettledReport>();
+
+            reports.Add(new SettledReport(
+                "2021-01",
+                "Nardin Nelson vs. Romel Zamora",
+                "Article 21",
+                "MEDIATION",
+                DateTime.Parse("01/05/2021"),
+                DateTime.Parse("01/07/2021"),
+                lorem1,
+                "COMPLIANCE",
+                lorem2));
+
+            reports.Add(new SettledReport(
+                "2021-02",
+                "Bayani Diaz vs. Jejomar Pangilinan",
+                "Article 35",
+                "ARBITRATION",
+                DateTime.Parse("01/06/2021"),
+                DateTime.Parse("01/07/2021"),
+                lorem2,
+                "NON-COMPLIANCE",
+                lorem3));
+
+            reports.Add(new SettledReport(
+                "2021-03",
+                "Melchor Cook vs. Gani Morgan",
+                "Article 45",
+                "CONCILIATION",
+                DateTime.Parse("01/08/2021"),
+                DateTime.Parse("01/09/2021"),
+                lorem3,
+                "COMPLIANCE",
+                lorem2));
+
+            reports.Add(new SettledReport(
+                "2021-04",
+                "Narding Edwards vs. Ramil Mendoza",
+                "Article 1",
+                "CONCILIATION",
+                DateTime.Parse("01/10/2021"),
+                DateTime.Parse("01/11/2021"),
+                lorem1,
+                "COMPLIANCE",
+                lorem1));
+
+            return View(reports);
+        }
 
         public ActionResult DisplayReportSummary(int? caseno)
         {
-            return View(new IncidentReportSummary("2020-08-3C0", "Atienza v Dimailig",
+            return View(new IncidentReportSummary("2020-08", "Atienza v Dimailig",
                 new List<string>() { "Mark Atienza", "Arch Gomez" },
                 new List<string>() { "Lesley Dimailig", "Ray Cruz", "Martin Black" },
                 lorem1,

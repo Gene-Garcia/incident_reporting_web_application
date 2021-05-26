@@ -134,6 +134,7 @@
     <Compile Include="Models\Hearing\Hearing.cs" />
     <Compile Include="Models\IncidentReportView\IncidentReportList.cs" />
     <Compile Include="Models\IncidentReportView\IncidentReportSummary.cs" />
+    <Compile Include="Models\IncidentReportView\SettledReport.cs" />
     <Compile Include="Models\KPForms\ComplaintFormModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\NoticeView\ForNotice.cs" />
@@ -172,7 +173,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\IncidentReport\CreateReport.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\IncidentReport\DisplayIncidentReports.cshtml" />
+    <Content Include="Views\IncidentReport\DisplayOngoingIncidentReports.cshtml" />
     <Content Include="Views\IncidentReport\DisplayReportSummary.cshtml" />
     <Content Include="Views\Notice\CasesForNotices.cshtml" />
     <Content Include="Views\Notice\ScheduleSelection.cshtml" />
@@ -186,6 +187,7 @@
     <Content Include="Views\AuditTrail\Index.cshtml" />
     <Content Include="Views\Hearing\FileCourtAction.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\IncidentReport\SettledIncidentReports.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,74 @@
+﻿@model IEnumerable<incident_reporting_web_application.Models.IncidentReportView.IncidentReportList>
+
+@{
+    ViewBag.Title = "Ongoing Cases";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-5 mb-5 px-3 py-4 shadow rounded" >
+
+    <h1 class="color-heading">Incident Reports</h1>
+    <p class="color-italic">Ongoing incident reports</p>
+
+    <div class="table-responsive pt-3">
+        <table class="table table-striped align-middle">
+
+            <thead>
+                <tr class="color-title">
+                    <td>Case #</td>
+                    <td>Title</td>
+                    <td>Hearing Status</td>
+                    <td>Incident Description</td> @*use ... as the button for modal*@
+                    <td>Relief Description</td>
+                    <td>Date of Incident</td>
+                    <td>Processed By</td>
+                    <td>Date Processed</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    var badgeColor = "bg-dark";
+
+                    if (item.HearingStatus == "MEDIATION") { badgeColor = "bg-primary"; }
+                    else if (item.HearingStatus == "CONCILIATION") { badgeColor = "bg-info"; }
+                    else if (item.HearingStatus == "ARBITRATION") { badgeColor = "bg-warning"; }
+
+                    <tr class="align-middle">
+                        <td>@item.CaseNo</td>
+                        <td>@item.CaseTitle</td>
+                        <td>
+                            <span class="badge rounded-pill @badgeColor" style="font-size: 14px;">
+                                @item.HearingStatus
+                            </span>
+                        </td>
+                        <td>@item.IncidentDesc</td>
+                        <td>@item.ReliefDesc</td>
+                        <td>@item.DateOfIncident.ToString("MMM dd, yyyy")</td>
+                        <td>@item.ProcessedBy</td>
+                        <td>@item.DateProcessed.ToString("MMM dd, yyyy")</td>
+                        
+                        @if (item.HearingStatus != "N/A")
+                        {
+                            <td class="text-center mx-auto d-block d-flex flex-column">
+                                <a href="/Hearing/CasesForHearing?hearingType=@item.HearingStatus" class="btn btn-sm btn-warning m-1 ">Hearing</a>
+                                <a href="/Notice/ManageCaseNotice" class="btn btn-sm btn-outline-primary m-1">Show Notices</a>
+                            </td>
+                        }
+                        else
+                        {
+                            <td class="text-center mx-auto d-block d-flex flex-column">
+                                <a href="/Notice/ManageCaseNotice" class="btn btn-sm btn-outline-primary m-1">Show Notices</a>
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+

@@ -1,0 +1,127 @@
+﻿@model IEnumerable<incident_reporting_web_application.Models.IncidentReportView.SettledReport>
+
+@{
+    ViewBag.Title = "Settled Incidents";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    var counter = 0;
+    var id = "";
+    var href = "";
+}
+
+<div class="mx-sm-3 mx-md-5 mx-1 my-5 px-3 py-4 shadow rounded" >
+
+    <h1 class="color-heading">Summary of Settled Incident Reports</h1>
+
+    <div class="table-responsive mt-4">
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr class="color-title">
+                    <td>Case No.</td>
+                    <td>Case Title</td>
+                    <td>Complaint Case</td>
+                    <td>Hearing/Action</td>
+                    <td>Date of Agreement</td>
+                    <td>Date of Execution</td>
+                    <td>Agreement</td>
+                    <td>Status of Compliance</td>
+                    <td>Remarks</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach(var record in Model)
+                {
+                    <tr>
+                        <td>
+                            @record.CaseNumber
+                        </td>
+                        <td>
+                            @record.CaseTitle
+                        </td>
+                        <td>
+                            @record.KPCase
+                        </td>
+
+                        @{ 
+                            var badgeColor = "bg-dark";
+                            if (record.HearingType == "MEDIATION") { badgeColor = "bg-primary"; }
+                            else if (record.HearingType == "CONCILIATION") { badgeColor = "bg-info"; }
+                            else if (record.HearingType == "ARBITRATION") { badgeColor = "bg-warning"; }
+                        }
+
+                        <td>
+                            <span class="badge rounded-pill @badgeColor" style="font-size: 12px;">
+                                @record.HearingType
+                            </span>
+                        </td>
+                        <td>
+                            @record.DateOfAgreement.ToString("MMM dd, yyyy")
+                        </td>
+                        <td>
+                            @record.DateOfExecution.ToString("MMM dd, yyyy")
+                        </td>
+
+                        @if(record.Agreement.Length >= 25)
+                        {
+                            id = "aggreement" + counter;
+                            href = "#aggreement" + counter;
+                            <td>
+                                @record.Agreement.Substring(0, 25) 
+                                <a class="text-primary" style="text-decoration:none; font-weight:600; opacity:80%" data-bs-toggle="collapse" href=@href role="button" aria-expanded="false" aria-controls=@id>
+                                    toggle...
+                                </a>
+                                <div class="collapse mt-3" id=@id>
+                                    @record.Agreement
+                                </div>
+                            </td>
+                        }
+                        else 
+                        { 
+                            <td>@record.Agreement</td>
+                        }
+
+                        @{ 
+                            badgeColor = "bg-light text-dark";
+                            if (record.ComplianceStatus == "COMPLIANCE") { badgeColor = "bg-dark text-light"; }
+                            else if (record.ComplianceStatus == "NON-COMPLIANCE") { badgeColor = "bg-light text-dark"; }
+                        }
+
+                        <td>
+                            <span class="badge rounded-pill @badgeColor" style="font-size: 12px;">
+                                @record.ComplianceStatus
+                            </span>
+                        </td>
+
+                        @if(record.Agreement.Length >= 25)
+                        {
+                            id = "remark" + counter;
+                            href = "#remark" + counter;
+                            counter += 1;
+
+                            <td>
+                                @record.Remarks.Substring(0, 25) 
+                                <a class="text-primary" style="text-decoration:none; font-weight:600; opacity:80%" data-bs-toggle="collapse" href=@href role="button" aria-expanded="false" aria-controls=@id>
+                                    toggle...
+                                </a>
+                                <div class="collapse mt-3" id=@id>
+                                    @record.Remarks
+                                </div>
+                            </td>
+                        }
+                        else 
+                        { 
+                            <td>@record.Remarks</td>
+                        }
+
+                        <td class="">
+                            <a href="/IncidentReport/DisplayReportSummary" class="btn btn-sm btn-primary">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
