@@ -188,6 +188,7 @@
     <Content Include="Views\Hearing\FileCourtAction.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\IncidentReport\SettledIncidentReports.cshtml" />
+    <Content Include="Views\Hearing\CreateArbitrationAgreement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
