@@ -12,12 +12,14 @@
     <div class="col-4 pt-2">
         <select class="form-select form-select-sm" aria-label=".form-select-sm example">
             <option selected>All Trails</option>
-            <option>One</option>
+            <option>Account</option>
+            <option>Hearing</option>
+            <option>Notice</option>
         </select>
     </div>
 
     <div class="table-responsive pt-4">
-        <table class="table table-striped align-middle">
+        <table class="table table-hover for-datatable align-middle">
             <thead>
                 <tr class="color-title">
                     <td>Date Recorded</td>
@@ -33,7 +35,7 @@
                     <tr>
                         <td>@item.DateRecorded.ToString("MMM dd, yyyy, hh:mm tt")</td>
                         <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                        <td style="font-weight:600">@Html.DisplayFor(modelItem => item.Username)</td>
+                        <td style="font-weight:600; opacity: 80%;">@Html.DisplayFor(modelItem => item.Username)</td>
                         <td>@Html.DisplayFor(modelItem => item.Module)</td>
                     </tr>
                 }

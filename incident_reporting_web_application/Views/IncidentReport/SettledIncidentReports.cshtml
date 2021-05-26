@@ -3,10 +3,6 @@
 @{
     ViewBag.Title = "Settled Incidents";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-
-    var counter = 0;
-    var id = "";
-    var href = "";
 }
 
 <div class="mx-sm-3 mx-md-5 mx-1 my-5 px-3 py-4 shadow rounded" >
@@ -14,7 +10,7 @@
     <h1 class="color-heading">Summary of Settled Incident Reports</h1>
 
     <div class="table-responsive mt-4">
-        <table class="table table-striped align-middle">
+        <table class="table table-hover for-datatable align-middle">
             <thead>
                 <tr class="color-title">
                     <td>Case No.</td>
@@ -65,16 +61,11 @@
 
                         @if(record.Agreement.Length >= 25)
                         {
-                            id = "aggreement" + counter;
-                            href = "#aggreement" + counter;
                             <td>
                                 @record.Agreement.Substring(0, 25) 
-                                <a class="text-primary" style="text-decoration:none; font-weight:600; opacity:80%" data-bs-toggle="collapse" href=@href role="button" aria-expanded="false" aria-controls=@id>
-                                    toggle...
+                                <a class="text-primary" style="text-decoration:none; font-weight:600; opacity:80%" data-bs-toggle="modal" data-bs-target="#agreementmodal">
+                                    see more...
                                 </a>
-                                <div class="collapse mt-3" id=@id>
-                                    @record.Agreement
-                                </div>
                             </td>
                         }
                         else 
@@ -94,20 +85,13 @@
                             </span>
                         </td>
 
-                        @if(record.Agreement.Length >= 25)
+                        @if(record.Remarks.Length >= 25)
                         {
-                            id = "remark" + counter;
-                            href = "#remark" + counter;
-                            counter += 1;
-
                             <td>
                                 @record.Remarks.Substring(0, 25) 
-                                <a class="text-primary" style="text-decoration:none; font-weight:600; opacity:80%" data-bs-toggle="collapse" href=@href role="button" aria-expanded="false" aria-controls=@id>
-                                    toggle...
+                                <a class="text-primary" style="text-decoration:none; font-weight:600; opacity:80%" data-bs-toggle="modal" data-bs-target="#remarksmodal">
+                                    see more...
                                 </a>
-                                <div class="collapse mt-3" id=@id>
-                                    @record.Remarks
-                                </div>
                             </td>
                         }
                         else 
@@ -124,4 +108,42 @@
         </table>
     </div>
 
+</div>
+
+<div class="modal fade" id="agreementmodal" tabindex="-1" aria-labelledby="agreementmodal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="">Agreement</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="px-3 py-2">
+                    Nullam laoreet, felis sed gravida tempor, metus diam feugiat orci, ut porta enim leo eu enim. Nunc sed sapien fringilla odio hendrerit viverra non non libero. Proin vitae justo a risus finibus scelerisque gravida venenatis dui. Pellentesque in porta eros. Aliquam vel neque vitae neque efficitur gravida. Nunc id porta ante, nec lacinia nisl. Aliquam posuere lectus a nibh rhoncus, non bibendum nunc laoreet. Nullam consequat est nec nisl molestie, vel bibendum enim faucibus. Nam vestibulum urna id justo condimentum, at rhoncus felis suscipit. Maecenas ante mauris, luctus et velit et, rhoncus hendrerit arcu. In hac habitasse platea dictumst.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="remarksmodal" tabindex="-1" aria-labelledby="remarksmodal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="">Execution Remarks</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="px-3 py-2">
+                    Vivamus porttitor, est blandit fermentum fermentum, ex lorem imperdiet erat, sit amet efficitur tortor velit at elit. Fusce consectetur velit nibh, eget tincidunt augue tristique ac. Nullam aliquam fringilla eros ac consequat. Phasellus dictum cursus malesuada. Duis ac maximus felis, at molestie risus. Aenean interdum ante sit amet gravida dictum. Etiam sodales faucibus arcu, non tincidunt odio tempus quis. Suspendisse potenti. Quisque porttitor, libero eget luctus pellentesque, massa eros faucibus velit, at mollis est enim et risus. In ullamcorper laoreet ante nec finibus. Donec quis ligula vehicula, aliquet justo eu, tristique neque. Nam tristique urna id facilisis consectetur. Aliquam sodales tortor non maximus accumsan. In porta dapibus purus, accumsan cursus ante egestas nec.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

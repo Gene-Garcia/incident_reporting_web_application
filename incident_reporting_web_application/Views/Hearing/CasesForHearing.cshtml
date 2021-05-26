@@ -17,7 +17,7 @@
     <h1 class="color-heading"><span style="text-decoration:underline">@ViewBag.HearingType</span> Hearing</h1>
 
     <div class="table-responsive mt-3">
-        <table class="table table-striped align-middle">
+        <table class="table table-hover for-datatable align-middle">
             <thead>
                 <tr>
                     <td>Case No.</td>
@@ -38,7 +38,7 @@
                         }
                     }
 
-                    <td></td>
+                    <td>Actions</td>
                 </tr>
             </thead>
 
@@ -67,22 +67,24 @@
                         }
 
                         <td class="d-flex flex-column">
-                            @{
-                                if (record.NeedRequirement == true && ViewBag.HearingType == "Conciliation") 
-                                { 
-                                    <a href="/Notice/ManageCaseNotice" class="m-1 btn btn-sm btn-info">Create Notice</a> 
-                                } 
-                                else if (record.NeedRequirement == true && ViewBag.HearingType == "Arbitration")
-                                {
-                                    <a href="" class="m-1 btn btn-sm btn-info">Create Arbitration Agreement</a>
+                            <div class="d-grid gap-2">
+                                @{
+                                    if (record.NeedRequirement == true && ViewBag.HearingType == "Conciliation") 
+                                    { 
+                                        <a href="/Notice/ManageCaseNotice" class="btn btn-sm btn-info">Create Notice</a> 
+                                    } 
+                                    else if (record.NeedRequirement == true && ViewBag.HearingType == "Arbitration")
+                                    {
+                                        <a href="" class="btn btn-sm btn-info">Create Arbitration Agreement</a>
+                                    }
+                                    else 
+                                    { 
+                                        <a href="/Hearing/RecordHearing?hearingtype=@ViewBag.HearingType" class="btn btn-sm btn-primary">Go to Hearing</a> 
+                                    }
                                 }
-                                else 
-                                { 
-                                    <a href="/Hearing/RecordHearing?hearingtype=@ViewBag.HearingType" class="m-1 btn btn-sm btn-primary">Go to Hearing</a> 
-                                }
-                            }
-                            <a href="/Notice/ManageCaseNotice" class="m-1 btn btn-secondary btn-sm">Add Witness</a>
-                            <a href="/Hearing/FileCourtAction" class="m-1 btn btn-outline-danger btn-sm">File Court Action</a>
+                                <a href="/Notice/ManageCaseNotice" class="btn btn-secondary btn-sm">Add Witness</a>
+                                <a href="/Hearing/FileCourtAction" class="btn btn-outline-danger btn-sm">File Court Action</a>
+                            </div>
                         </td>
                     </tr>
                 }

@@ -5,13 +5,13 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="container mt-5 mb-5 px-3 py-4 shadow rounded" >
+<div class="container mt-5 mb-5 px-3 py-4 shadow rounded">
 
     <h1 class="color-heading">Incident Reports</h1>
     <p class="color-italic">Ongoing incident reports</p>
 
     <div class="table-responsive pt-3">
-        <table class="table table-striped align-middle">
+        <table class="table table-hover align-middle for-datatable" id="ongoing-incident">
 
             <thead>
                 <tr class="color-title">
@@ -40,7 +40,7 @@
                         <td>@item.CaseNo</td>
                         <td>@item.CaseTitle</td>
                         <td>
-                            <span class="badge rounded-pill @badgeColor" style="font-size: 14px;">
+                            <span class="badge rounded-pill @badgeColor" style="font-size: 12px;">
                                 @item.HearingStatus
                             </span>
                         </td>
@@ -49,18 +49,22 @@
                         <td>@item.DateOfIncident.ToString("MMM dd, yyyy")</td>
                         <td>@item.ProcessedBy</td>
                         <td>@item.DateProcessed.ToString("MMM dd, yyyy")</td>
-                        
+
                         @if (item.HearingStatus != "N/A")
                         {
-                            <td class="text-center mx-auto d-block d-flex flex-column">
-                                <a href="/Hearing/CasesForHearing?hearingType=@item.HearingStatus" class="btn btn-sm btn-warning m-1 ">Hearing</a>
-                                <a href="/Notice/ManageCaseNotice" class="btn btn-sm btn-outline-primary m-1">Show Notices</a>
+                            <td class="">
+                                <div class="d-grid gap-2">
+                                    <a href="/Hearing/CasesForHearing?hearingType=@item.HearingStatus" class="btn btn-sm btn-warning">Hearing</a>
+                                    <a href="/Notice/ManageCaseNotice" class="btn btn-sm btn-outline-primary">Show Notices</a>
+                                </div>
                             </td>
                         }
                         else
                         {
-                            <td class="text-center mx-auto d-block d-flex flex-column">
-                                <a href="/Notice/ManageCaseNotice" class="btn btn-sm btn-outline-primary m-1">Show Notices</a>
+                            <td class="">
+                                <div class="d-grid gap-2">
+                                    <a href="/Notice/ManageCaseNotice" class="btn btn-sm btn-outline-primary ">Show Notices</a>
+                                </div>
                             </td>
                         }
                     </tr>
@@ -71,4 +75,3 @@
     </div>
 
 </div>
-
