@@ -4,7 +4,7 @@
 }
 
 <style>
-    
+
     .sidebar {
         height: 100%;
         width: 220px; /*change to 0px*/
@@ -30,9 +30,9 @@
         border: none;
     }
 
-    .openbtn:hover {
-        background-color: #faf3f3;
-    }
+        .openbtn:hover {
+            background-color: #faf3f3;
+        }
 
     #main-content {
         transition: margin-left .5s;
@@ -102,7 +102,7 @@
     <!-- Image Top -->
     <div class="mb-1 text-center px-2 mt-4">
         <div>
-            <img src="~/Content/Images/Sinisian.png" class="w-75"/>
+            <img src="~/Content/Images/Sinisian.png" class="w-75" />
         </div>
         @*<p class=" sidebar-title">Province of Batangas, Municipality of Calaca, Barangay Sinisian</p>*@
     </div>
@@ -236,7 +236,79 @@
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create your Digital Signature</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body m-auto d-block">
+                <canvas id="signature-pad" class="shadow"></canvas>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-dark" onclick="undo()">Undo</button>
+                <button type="button" class="btn btn-sm btn-secondary" onclick="erasePad()">Erase</button>
+                <button type="button" class="btn btn-sm btn-primary" onclick="savePad()">Save Signature</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
+    @*signature pad*@
+    var signaturePad;
+    function openModal() {
+        var canvas = document.getElementById('signature-pad');
+        canvas.width = "400";
+        canvas.height = "300"
+        signaturePad = new SignaturePad(canvas, {
+            backgroundColor: 'rgb(255, 255, 255)'
+        });
+        resizeCanvas()
+    }
+
+    function resizeCanvas() {
+        var canvas = document.getElementById('signature-pad');
+        if (window.innerWidth <= 340) {
+            canvas.width = "200";
+            canvas.height = "300"
+        }
+        else if (window.innerWidth <= 450) {
+            canvas.width = "300";
+            canvas.height = "300"
+        }
+    }
+
+    window.onresize = resizeCanvas;
+
+    function erasePad() {
+        signaturePad.clear();
+    }
+
+    function undo() {
+        var data = signaturePad.toData();
+        if (data) {
+            data.pop(); // remove the last dot or line
+            signaturePad.fromData(data);
+        }
+    }
+
+    function savePad() {
+        if (signaturePad.isEmpty()) {
+            return alert("Please provide a signature first.");
+        } else {
+            var data = signaturePad.toDataURL('image/jpeg');
+            console.log(data);
+            var hiddenElement = document.createElement('a');
+            hiddenElement.href = data;
+            hiddenElement.target = '_blank';
+            hiddenElement.download = 'digital_signature.jpeg';
+            hiddenElement.click();
+        }
+    }
+
     window.onload = function () {
         checkDeviceWidth();
         startDate();
