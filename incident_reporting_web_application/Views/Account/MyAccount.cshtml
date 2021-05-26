@@ -89,7 +89,7 @@
                 </div>
 
                 <div class="row mt-3">
-                    <div class="col-md-12 text-end">
+                    <div class="col-md-12 text-md-end">
                         <input type="submit" value="Change Password" class="btn btn-primary" />
                     </div>
                 </div>
@@ -100,11 +100,90 @@
     </div>
 
     <div id="securityQuestion" class="collapse pt-3">
-        Security q
+        <hr />
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label color-title">Security Question #1</label>
+                    <select class="form-select">
+                        <option selected>Select a question</option>
+                        <option>
+                            What was the house number and street name you lived in as a child?
+                        </option>
+                        <option>
+                            What were the last four digits of your childhood telephone number?
+                        </option>
+                        <option>
+                            What primary school did you attend?
+                        </option>
+                        <option>
+                            What was your childhood nickname?
+                        </option>
+                        <option>
+                            In what city or town did your mother and father meet?
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group pt-3">
+                    <input type="text" class="form-control" placeholder="Answer"/>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mt-3 mt-md-0">
+                <div class="form-group">
+                    <label class="control-label color-title">Security Question #2</label>
+                    <select class="form-select">
+                        <option selected>Select a question</option>
+                        <option>
+                            What was the last name of your third grade teacher?
+                        </option>
+                        <option>
+                            What was the name of your elementary / primary school?
+                        </option>
+                        <option>
+                            What was your dream job as a child?
+                        </option>
+                        <option>
+                            What is the name of your favorite childhood teacher?
+                        </option>
+                        <option>
+                            What was your favorite place to visit as a child?
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group pt-3">
+                    <input type="text" class="form-control" placeholder="Answer" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row pt-3 text-md-end">
+            <div class="form-group col-12">
+                <input type="button" class="btn btn-primary" value="Submit"/>
+            </div>
+        </div>
     </div>
 
     <div id="signature" class="collapse pt-3">
-        Signature
+        <hr />
+
+        <div class="form-group">
+            <label for="formFile" class="form-label color-title">Upload Digital Signature</label>
+            <input class="form-control" type="file" id="formFile">
+        </div>
+
+        <div class="form-group row g-0 pt-3">
+            <div class="col-md-6">
+                <p><a href="">Don't have a digital signature?</a></p>
+            </div>
+
+            <div class="col-md-6 text-md-end">
+                <input type="button" value="Submit Signature" class="btn btn-primary" />
+            </div>
+        </div>
     </div>
 
 </div>
