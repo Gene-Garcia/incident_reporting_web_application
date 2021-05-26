@@ -60,12 +60,14 @@ namespace incident_reporting_web_application.Controllers
             return View(hearings);
         }
 
-        public ActionResult RecordHearing(string caseno)
+        public ActionResult RecordHearing(string caseno, string hearingtype)
         {
+            if (hearingtype == "") hearingtype = "MEDIATION";
+
             Hearing h = new Hearing(
                 "2021-05-B12",
                 "Velasquez v Cortez",
-                "MEDIATION",
+                hearingtype.ToUpper(),
                 new List<string>(){ "VELASQUEZ, Martin, Joe", "VELASQUEZ, Cha, Atienza" },
                 new List<string>(){ "CORTEZ, Luca, Lou" },
                 new List<string>(){ "MARIA, Jeremy, Roxas" },
