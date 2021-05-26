@@ -3,30 +3,159 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<style>
+    .hearing-type{
+        font-weight:700;
+        font-size: 19px;
+        opacity: 80%;
+        color:black;
+        text-decoration: none;
+    }
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    .hearing-type:hover{
+        color:red;
+    }
+
+    .color-title {
+        font-size: 19px;
+    }
+
+    .hearing-schedule-day {
+        color:black;
+        opacity: 80%;
+        font-weight:700;
+    }
+
+    .hearing-title{
+        font-weight:600;
+        opacity: 90%;
+    }
+
+    .hearing-date{
+        font-style:italic;
+        font-weight:600;
+        opacity: 60%;
+    }
+</style>
+
+<div class="container mt-5">
+    <h1 class="color-heading mb-4">Welcome!</h1>
+
+
+    <div class="row g-5">
+        <div class="col-lg-6 col-xl-7">
+            <div class="card h-100 border-0 shadow rounded-3">
+                <div class="card-body">
+                    
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="color-title mb-1">Incident Report Cases</p>
+                            <p class="color-italic text-danger">Needs notice records</p>
+                        </div>
+
+                        <div class="col-6 text-end">
+                            <p><span class="badge color-title text-light bg-secondary">3</span></p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <ol class="list-group list-group-numbered list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Viceral v Mariano</div>
+                                    Reported on May 28, 2021
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Ocampo v Rivas</div>
+                                    Reported on May 28, 2021
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Gomez v Hilario</div>
+                                    Reported on May 30, 2021
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-xl-5">
+            <div class="card h-100 border-0 shadow rounded-3">
+                <div class="row p-0 g-0">
+                    <p class="color-title m-auto px-3 pt-3">Hearings</p>
+                </div>
+
+                <div class="row g-0 h-100">
+                    <div class="p-3 col-10 m-auto">
+                        <a href="" class="hearing-type p-0 m-0 ">
+                            Mediation by the Lupon »
+                        </a>
+                    </div>
+
+                    <div class="p-3 m-auto col-2">
+                        <span class="badge bg-secondary mx-auto d-block" style="font-size:17px;">2</span>
+                    </div>
+                </div>
+
+                <div class="row border-secondary border border-start-0 border-end-0 g-0 h-100">
+                    <div class="p-3 col-10 m-auto">
+                        <a href="" class="hearing-type p-0 m-0 ">
+                            Conciliation by the Pangkat »
+                        </a>
+                    </div>
+
+                    <div class="p-3 m-auto col-2">
+                        <span class="badge bg-secondary mx-auto d-block" style="font-size:17px;">3</span>
+                    </div>
+                </div>
+
+                <div class="row  g-0 h-100">
+                    <div class="p-3 col-10 m-auto">
+                        <a href="" class="hearing-type p-0 m-0 ">
+                            Arbitration »
+                        </a>
+                    </div>
+
+                    <div class="p-3 m-auto col-2">
+                        <span class="badge bg-dark mx-auto d-block" style="font-size:17px;">5</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+
+    <div class="row g-0 mt-5">
+        <div class="card border-0 shadow rounded-4">
+            <div class="card-body">
+                <p class="color-title">Hearing Schedule</p>
+
+                <div class="row">
+                    <div class="mt-4 mt-md-0 col-md-6 col-lg-4">
+                        <p class="hearing-schedule-day" style="text-decoration:underline">Today</p>
+                        <p class="hearing-title">Marasigan v Martinez, <span class="hearing-date">May 26, 2021, 03:30 PM</span></p>
+                    </div>
+
+                    <div class="mt-4 mt-md-0 col-md-6 col-lg-4">
+                        <p class="hearing-schedule-day">Tomorrow</p>
+                        <p class="hearing-title">Atienza v Dela Cruz, <span class="hearing-date">May 27, 2021, 01:00 PM</span></p>
+                    </div>
+
+                    <div class="mt-4 mt-lg-0 text-md-center text-start text-lg-start col-lg-4">
+                        <p class="hearing-schedule-day">Next Week</p>
+                        <p class="hearing-title">Dimailig v Atienza, <span class="hearing-date">May 31, 2021, 05:30 PM</span></p>
+                        <p class="hearing-title">Marasigan v Dela Cruz, <span class="hearing-date">June 2, 2021, 08:00 AM</span></p>
+                        <p class="hearing-title">Villalobos v Castillo, <span class="hearing-date">June 4, 2021, 09:00 AM</span></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+
 </div>
