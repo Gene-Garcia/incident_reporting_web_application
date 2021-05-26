@@ -17,6 +17,11 @@ namespace incident_reporting_web_application.Controllers
             return View();
         }
 
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
         public ActionResult MyAccount()
         {
             AccountInfo acc = new AccountInfo(
