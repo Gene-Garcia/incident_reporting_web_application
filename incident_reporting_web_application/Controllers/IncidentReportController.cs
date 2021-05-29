@@ -168,7 +168,7 @@ namespace incident_reporting_web_application.Controllers
 
         public ActionResult DisplayReportSummary(int? caseno)
         {
-            return View(new IncidentReportSummary("2020-08", "Atienza v Dimailig",
+            return View(new IncidentReportSummary("2020-08", "Mark Atienza vs Lesley Dimailig",
                 new List<string>() { "Mark Atienza", "Arch Gomez" },
                 new List<string>() { "Lesley Dimailig", "Ray Cruz", "Martin Black" },
                 lorem1,
