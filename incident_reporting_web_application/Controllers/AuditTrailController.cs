@@ -40,7 +40,7 @@ namespace incident_reporting_web_application.Controllers
 
             trails.Add(new AuditTrail(
                 DateTime.Parse("5/4/2021 08:50"),
-                "Case #2021-05-AD1 Atienza v Dimailig recorded.",
+                "Case #2021-05 Martin Atienza vs. Rica Dimailig recorded.",
                 "martin_v_atienza",
                 "Incident Report"));
 
@@ -64,33 +64,33 @@ namespace incident_reporting_web_application.Controllers
 
             trails.Add(new AuditTrail(
                 DateTime.Parse("5/8/2021 09:33"),
-                "Hearing status changed to CONCILIATION for case #2021-05-Z30.",
+                "Hearing status changed to CONCILIATION for case #2021-08.",
                 "martin_v_atienza",
-                "Hearing"));
+                "Settlement"));
 
             trails.Add(new AuditTrail(
                 DateTime.Parse("5/10/2021 13:50"),
-                "Hearing status changed to ARBITRATION for case #2021-05-A10.",
+                "Hearing status changed to ARBITRATION for case #2021-08.",
                 "john_v_dimailig",
-                "Hearing"));
+                "Settlement"));
 
             trails.Add(new AuditTrail(
                 DateTime.Parse("5/9/2021 13:15"),
-                "Created amicable settlement for case #2021-05-Z30.",
+                "Created amicable settlement for case #2021-08.",
                 "john_v_dimailig",
-                "Hearing"));
+                "Settlement"));
 
             trails.Add(new AuditTrail(
                 DateTime.Parse("5/12/2021 14:01"),
-                "Created arbitration award for case #2021-05-A10.",
+                "Created arbitration award for case #2021-08.",
                 "john_v_dimailig",
-                "Hearing"));
+                "Settlement"));
 
             trails.Add(new AuditTrail(
                 DateTime.Parse("5/15/2021 15:29"),
-                "Court action filed from case #2021-05-3X1.",
+                "Court action filed from case #2021-09.",
                 "martin_v_atienza",
-                "Hearing"));
+                "Settlement"));
 
             return View(trails);
         }
